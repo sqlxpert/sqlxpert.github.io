@@ -8,5 +8,17 @@ include:
   - README.md
   - LICENSE-CODE.md
   - LICENSE-DOC.md
+
+remote_theme: "https://github.com/jekyll/minima/tree/v2.5.2"
+
+defaults:
+  -
+    scope:
+      path: ""  # all files
+      # type: "posts"
+    values:
+      layout: "default"
+
 timezone: America/Los_Angeles
+encoding: utf-8
 markdown: GFM
