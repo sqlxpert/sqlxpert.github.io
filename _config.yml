@@ -10,10 +10,11 @@ include:
   - LICENSE-CODE.md
   - LICENSE-DOC.md
 
-remote_theme: "jekyll/minima@v2.5.2"
+remote_theme: "jekyll/primer@v0.6.0"
 
 title: Paul's Musings
 description: ""
+author: ""
 
 defaults:
   -
