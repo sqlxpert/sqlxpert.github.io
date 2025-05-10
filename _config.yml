@@ -7,11 +7,13 @@ relative_links:
   collections: true
 include:
   - INDEX.md
-  - README.md
   - LICENSE-CODE.md
   - LICENSE-DOC.md
 
 remote_theme: "jekyll/minima@v2.5.2"
+
+title: Paul's Musings
+description: ""
 
 defaults:
   -
