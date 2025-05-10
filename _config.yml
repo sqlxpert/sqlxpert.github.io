@@ -16,13 +16,13 @@ title: Paul Marcelin's Musings
 description: ""
 author: ""
 
-defaults:
-  -
-    scope:
-      path: ""  # all files
-      # type: "posts"
-    values:
-      layout: "default"
+# defaults:
+#   -
+#     scope:
+#       path: ""  # all files
+#       # type: "posts"
+#     values:
+#       layout: "default"
 
 timezone: America/Los_Angeles
 encoding: utf-8
