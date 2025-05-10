@@ -12,6 +12,10 @@ include:
 
 remote_theme: "jekyll/minima@0b7ca6b"
 
+minima:
+  nav_pages:
+  date_format: "%Y-%m-%d"
+
 title: Paul Marcelin's Musings
 description: ""
 author: ""
