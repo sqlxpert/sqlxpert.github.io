@@ -10,7 +10,7 @@ include:
   - LICENSE-CODE.md
   - LICENSE-DOC.md
 
-remote_theme: "jekyll/minima@v2.5.2"
+remote_theme: "jekyll/minima@0b7ca6b"
 
 title: Paul Marcelin's Musings
 description: ""
