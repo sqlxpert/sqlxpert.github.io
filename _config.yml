@@ -9,7 +9,7 @@ include:
   - LICENSE-CODE.md
   - LICENSE-DOC.md
 
-remote_theme: "https://github.com/jekyll/minima/tree/v2.5.2"
+remote_theme: "jekyll/minima@v2.5.2"
 
 defaults:
   -
