@@ -4,7 +4,9 @@ relative_links:
   enabled: true
   collections: true
 include:
+  - INDEX.md
   - README.md
   - LICENSE-CODE.md
   - LICENSE-DOC.md
+timezone: America/Los_Angeles
 markdown: GFM
