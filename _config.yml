@@ -17,6 +17,7 @@ minima:
   social_links:
   nav_pages:
   show_excerpts: true
+  hide_site_feed_link: true
 
 title: Paul Marcelin's Musings
 description: ""
