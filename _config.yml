@@ -29,7 +29,8 @@ author:
   name: Copyright Paul Marcelin
   email: marcDELETEelin@alumni.cmu.edu
 
-# defaults:
+default:
+  default_paths:
 #   -
 #     scope:
 #       path: ""  # all files
