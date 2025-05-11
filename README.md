@@ -1,9 +1,5 @@
 # sqlxpert.github.io
 
-This repository backs the [sqlxpert.github.io](https://sqlxpert.github.io) Web site.
+This repository backs the [sqlxpert.github.io](https://sqlxpert.github.io) Web site. See [licenses](https://sqlxpert.github.io/#licenses).
 
-See [Licenses](https://sqlxpert.github.io/#licenses).
-
-Copyright Paul Marcelin
-
-Contact: `marcelin` at `cmu.edu` (replace "at" with `@`)
+Copyright Paul Marcelin [marcDELETEelin@alumni.cmu.edu](mailto:marcDELETEelin@alumni.cmu.edu)
