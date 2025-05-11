@@ -2,14 +2,7 @@
 
 This repository backs the [sqlxpert.github.io](https://sqlxpert.github.io) Web site.
 
-## Licenses
-
-|Scope|License|Included Copy|
-|:---|:---|:---:|
-|Posts (except source code portions), index pages, original media files|[Creative Commons Attribution-NonCommercial-NoDerivatives (CC BY-NC-ND) 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode.en)|[LICENSE.md](/LICENSE.md)|
-|Original source code|[GNU General Public License (GPL) 3.0](http://www.gnu.org/licenses/gpl-3.0.html)|[LICENSE-CODE.md](/LICENSE-CODE.md)|
-|Excerpts of non-original source code|_As indicated in the post_|_Provided with the post if required_|
-|Non-original media files|_As indicated in the post_|_Provided with the post if required_|
+For licenses, see [Licenses](https://sqlxpert.github.io/#licenses).
 
 Copyright Paul Marcelin
 
