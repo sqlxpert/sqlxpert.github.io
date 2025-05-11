@@ -21,7 +21,8 @@ minima:
   hide_site_feed_link: true
 
 title: Paul Marcelin's Musings
-description: ""
+description: >-
+  Licenses: Original source code: GPLv3; other original content: CC BY-NC-ND 4.0; non-original content: as indicated.
 author:
   name: Copyright Paul Marcelin
   email: marcDELETEelin@alumni.cmu.edu
