@@ -6,9 +6,9 @@ relative_links:
   enabled: true
   collections: true
 include:
-  # - INDEX.md
-  # - LICENSE-CODE.md
-  # - LICENSE.md
+  - INDEX.md
+  - LICENSE-CODE.md
+  - LICENSE.md
 
 pages:
 
