@@ -14,9 +14,10 @@ remote_theme: "jekyll/minima@0b7ca6b"
 
 minima:
   date_format: "%Y-%m-%d"
-  social_links:
+  skin: auto
   nav_pages:
   show_excerpts: true
+  social_links:
   hide_site_feed_link: true
 
 title: Paul Marcelin's Musings
