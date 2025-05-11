@@ -1,6 +1,6 @@
 # sqlxpert.github.io
 
-This repository backs the [sqlxpert.github.io](sqlxpert.github.io) Web site.
+This repository backs the [sqlxpert.github.io](https://sqlxpert.github.io) Web site.
 
 ## Licenses
 
