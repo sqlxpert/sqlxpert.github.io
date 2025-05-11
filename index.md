@@ -1,5 +1,3 @@
-# TestyMcTest
-
 ## Licenses
 
 |Scope|License|Included Copy|
