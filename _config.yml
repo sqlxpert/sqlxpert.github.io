@@ -8,7 +8,7 @@ relative_links:
 include:
   - INDEX.md
   - LICENSE-CODE.md
-  - LICENSE-DOC.md
+  - LICENSE.md
 
 remote_theme: "jekyll/minima@0b7ca6b"
 
@@ -22,7 +22,7 @@ minima:
 
 title: Paul Marcelin's Musings
 description: >-
-  Licenses: Original source code: GPLv3; other original content: CC BY-NC-ND 4.0; non-original content: as indicated.
+  Licenses: original source code: GPLv3; other original content: CC BY-NC-ND 4.0; non-original content: as indicated.
 author:
   name: Copyright Paul Marcelin
   email: marcDELETEelin@alumni.cmu.edu
