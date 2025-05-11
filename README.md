@@ -2,7 +2,7 @@
 
 This repository backs the [sqlxpert.github.io](https://sqlxpert.github.io) Web site.
 
-For licenses, see [Licenses](https://sqlxpert.github.io/#licenses).
+See [Licenses](https://sqlxpert.github.io/#licenses).
 
 Copyright Paul Marcelin
 
