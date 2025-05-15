@@ -22,9 +22,9 @@ minima:
   social_links:
   hide_site_feed_link: true
 
-title: Paul Marcelin's Musings
+title: sqlxpert.github.io
 description: >-
-  Original source code GPLv3; other original content CC BY-NC-ND 4.0; non-original content licenses as indicated
+  Original source code: GPLv3; other original content: CC BY-NC-ND 4.0; non-original content: indicated license
 author:
   name: Copyright Paul Marcelin
   email: marcDELETEelin@alumni.cmu.edu
