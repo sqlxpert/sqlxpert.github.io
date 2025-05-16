@@ -92,13 +92,13 @@ This is the newest of the five services. Its `StartBackupJob` command follows th
 
 ### Comparison
 
-The five services all take different approaches to idempotence. Within AWS, the left hand did not know what the right hand was doing. EC2, the oldest of the five services, and AWS Backup, the newest, handle idempotence well. The AWS Backup approach is the best, because of the range of use cases that it accommodates (operations that are inherently idempotent, such as trying to start an EC2 instance that is already running, _plus_ operations that are idempotent when we say so, such as inadvertently trying to start a backup twice in the same 10-minute interval).
+The five services all take different approaches to idempotence. Within AWS, the left hand did not know what the right hand was doing. EC2, the oldest of the five services, and AWS Backup, the newest, handle idempotence well.
 
 ### Why Do We Care about AWS Inconsistencies?
 
 Lack of consistency is **expensive**.
 I do not know whether _AWS_ spent more by having each service team proceed independently, or whether it earned more by bringing each service to market faster.
-I do know that every _customer_ using multiple AWS services has to discover the inconsistencies (sometimes by trial-and-error, because not every detail is or can be documented), write extra code to work around them, and then fix the bugs that result from the extra complexity.
+I do know that every _customer_ using multiple AWS services has to discover the inconsistencies (sometimes by trial-and-error, because not every detail is or can be documented), write extra code to work around them, and fix the bugs that result.
 
 ---
 
