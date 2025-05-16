@@ -5,7 +5,6 @@ title: "Idempotence: Doing It More than Once"
 _Five different AWS services, five different approaches to the same problem!<br/>
 By improving your organization, you can improve your software..._
 
----
 ## What Is Idempotence?
 
 In organizations, just as in software, it is best to do work one time, and one time only.
@@ -16,16 +15,12 @@ If we cannot eliminate repetition, we want to be sure that the result remains th
 
 Compare adding 1 with multiplying by 1. Which operation is idempotent? In other words, which operation gives the same result no matter how many times we repeat it? Now, is adding 0 idempotent? Multiplying by 0?
 
----
-
 ## AWS Builds Incrementally
 
 My tool for cutting Amazon Web Services cloud computing costs, [github.com/sqlxpert/lights-off-aws](https://github.com/sqlxpert/lights-off-aws#lights-off) , stops computers and databases when they are not needed, and starts them again later. It can delete other kinds of expensive resources, and create them again later. It can also take backups on a schedule.
 These operations _ought to be idempotent_. Trying to start a computer that is already running should not cause an error. Trying to back up a database when a backup was started a few minutes ago should not cause an error, let alone produce another backup.
 
 AWS comprises hundreds of services, [launched at different times](https://en.m.wikipedia.org/wiki/Timeline_of_Amazon_Web_Services). This is [incrementalism](https://en.wikipedia.org/wiki/Incrementalism) : capabilities are added little by little. The advantage is innovation. A potential disadvantage is repeated effort that leads to different, and not necessarily better, results. As you will see, some basic commands in core AWS services are non-idempotent, and this suggests that AWS's internal work processes are non-idempotent. It could be an example of [Conway's Law](https://en.m.wikipedia.org/wiki/Conway%27s_law) : software matches the organization that produces it.
-
----
 
 ## AWS Services Approach Idempotence Differently
 
@@ -90,15 +85,11 @@ This is the newest of the five services. Its `StartBackupJob` command follows th
 
 The five services all take different approaches to idempotence. Within AWS, the left hand did not know what the right hand was doing. EC2, the oldest of the five services, and AWS Backup, the newest, handle idempotence well. The AWS Backup approach is the best, because of the range of use cases that it can accommodate (operations that are inherently idempotent, such as trying to start an EC2 instance that is already running, _plus_ operations that are idempotent if we say so, such as inadvertently trying to start a backup twice in the same 10-minute interval).
 
----
-
 ## Why Do We Care about AWS Inconsistencies?
 
 Lack of consistency is **expensive**.
 I do not know whether _AWS_ spent more by having each service team proceed independently, or whether it earned more by bringing each service to market faster.
 I do know that every _customer_ using multiple AWS services has to discover the inconsistencies (sometimes by trial-and-error, because not every detail is or can be documented), write extra code to work around them, and then fix the bugs that result from the extra complexity.
-
----
 
 ## How Can We Avoid Repeating this Pattern?
 
