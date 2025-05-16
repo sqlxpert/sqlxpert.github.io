@@ -84,7 +84,7 @@ one of stopped, inaccessible-encryption-credentials-recoverable.
 
 ### 4. CloudFormation
 
-This service creates and deletes all kinds of resources, and predates Aurora. Its `UpdateStack` command is optionally idempotent. I can specify a known value, a token. If all the details, including the token, match, then repeated requests succeed; CloudFormation acts on the first request only. The token is named `ClientRequestToken` , cannot contain punctuation other than hyphens, and cannot be more than 128 characters long. Lights Off runs every ten minutes, so I set the token to the start of the ten-minute interval. I have to remove the colon that separates hours from minutes. The time still conforms to the ISO 8601 standard, but it becomes a little harder for humans to decipher (for example, `1510` instead of `15:10`).
+This service, which creates and deletes all kinds of resources, predates Aurora. Its `UpdateStack` command is optionally idempotent. I can specify a known value, a token. If all the details, including the token, match, then repeated requests succeed; CloudFormation acts on the first request only. The token is named `ClientRequestToken` , cannot contain punctuation other than hyphens, and cannot be more than 128 characters long. Lights Off runs every ten minutes, so I set the token to the start of the ten-minute interval. I have to remove the colon that separates hours from minutes. The time still conforms to the ISO 8601 standard, but it becomes a little harder for humans to decipher (for example, `1510` instead of `15:10`).
 
 ### 5. AWS Backup
 
