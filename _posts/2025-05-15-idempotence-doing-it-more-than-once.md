@@ -86,9 +86,9 @@ This service creates and deletes all kinds of resources, and predates Aurora. It
 
 This is the newest of the five services. Its `StartBackupJob` command follows the same approach as CloudFormation, but the token is named `IdempotencyToken` , can contain punctuation, and is not limited to 128 characters.
 
-### Summary
+### Comparison
 
-EC2, the oldest of the five services, and AWS Backup, the newest, handle idempotence well. The five services all take different approaches! Within AWS, the left hand did not know what the right hand was doing.
+The five services all take different approaches to idempotence. Within AWS, the left hand did not know what the right hand was doing. EC2, the oldest of the five services, and AWS Backup, the newest, handle idempotence well. The AWS Backup approach is the best, because of the range of use cases that it can accommodate (operations that are inherently idempotent, such as trying to start an EC2 instance that is already running, _plus_ operations that are idempotent if we say so, such as inadvertently trying to start a backup twice in the same 10-minute interval).
 
 ---
 
@@ -112,16 +112,16 @@ The goal is **to foster awareness, not to cover every detail**. Fit the list of 
 
 #### The EC2 Approach
 
-* "Idempotence: Repeated requests succeed, and the response mentions the initial state."
+* Idempotence: Repeated requests succeed, and the response mentions the initial state.
 
 #### The Aurora Approach
 
-* "Idempotence: Repeated requests fail, and the error message mentions the initial state."
-* "Errors: Error codes match exception names."
+* Idempotence: Repeated requests fail, and the error message mentions the initial state.
+* Errors: Error codes match exception names.
 
 #### The AWS Backup Approach
 
-* "Idempotence: Repeated requests succeed if the optional `IdempotencyToken` parameter, an arbitrary Unicode string, matches."
+* Idempotence: Repeated requests succeed if the optional `IdempotencyToken` parameter, an arbitrary Unicode string, matches.
 
 ### B. Review Past Practices when Designing and Coding
 
@@ -129,7 +129,7 @@ A review of past practices belongs in every important design, and also in the de
 
 Add this to the "definition of done". Allocate time in proportion to the cost of changing the system later. For example, spend extra time searching for past practices when you are designing or implementing a public application programming interface (API). As soon as customers and their code depend on your API, changing the semantics becomes practically impossible.
 
-Do not let searching for past practices devolve into a perfunctory step, a mere checkbox in a template. If you found no past practice, mention where you looked and what you looked for. Documenting the _absence_ of information is as important as documenting the information.
+Do not let searching for past practices devolve into a perfunctory step, a mere checkbox in a template. If you found no past practice, mention where you looked and what you looked for. Documenting the _absence_ of information is as important as documenting information.
 
 ### C. Maintain the Standards
 
