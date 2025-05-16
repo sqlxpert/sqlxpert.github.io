@@ -124,7 +124,7 @@ The goal is **to promote awareness, not to cover every detail**. Fit the list of
 
 #### The AWS Backup Approach
 
-* Idempotence: A repeated request succeeds and is ignored if the `IdempotencyToken` parameter, an arbitrary Unicode string, remains the same.
+* Idempotence: A repeated request succeeds and is ignored if the `IdempotencyToken` parameter, an arbitrary string, remains the same.
 
 _Which two of the three approaches above are semantically equivalent? Could any one of the three satisfy the idempotence cases for all of the commands listed earlier in the article? If not, which command or pair of commands is special?_
 
