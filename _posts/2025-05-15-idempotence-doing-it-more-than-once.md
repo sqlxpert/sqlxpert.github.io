@@ -88,7 +88,7 @@ This service, which creates and deletes all kinds of resources, predates Aurora.
 
 ### 5. AWS Backup
 
-This is the newest of the five services. Its `StartBackupJob` command follows the same approach as CloudFormation, but the token is named `IdempotencyToken` . There are no stated limits to the length or the allowable characters.
+This is the newest of the five services. Its `StartBackupJob` command follows the same approach as CloudFormation, but the token is named `IdempotencyToken` . No specific limits are placed on length or allowable characters.
 
 ### Comparison
 
