@@ -96,7 +96,7 @@ As frustrating as inconsistency is to me as a software engineer, it is even more
 
 I am not talking about a Confluence page tree of stale documents, requests for comment (RFCs), and so on. Nobody will read that. Anyone who does look will get nervous because one author after another is labeled "A former colleague".
 
-The goal is **to foster awareness, not to cover every detail**. Fit the list of standards to one or two pages. Group the entries by topic. Limit each entry to one sentence. If necessary, link to a detailed document or, better yet, to real code. Of the approaches discussed in this article, you could choose from:
+The goal is **to foster awareness, not to cover every detail**. Fit the list of standards to one or two pages. Group the entries by topic. Limit each entry to one sentence. If necessary, link to a detailed document or, better yet, to real code. Of the good approaches discussed in this article, you could choose between:
 
 #### The EC2 Approach
 
