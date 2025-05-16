@@ -78,7 +78,9 @@ This service creates and deletes all kinds of resources, and predates Aurora. It
 
 This is the newest of the five services. Its `StartBackupJob` command follows the same approach as CloudFormation, but the token is named `IdempotencyToken` , can contain punctuation, and is not limited to 128 characters.
 
-EC2, the oldest of the five services, and AWS Backup, the newest, handle idempotence well. The five services all take a different approach! Inside AWS, the left hand did not know what the right hand was doing.
+### Summary
+
+EC2, the oldest of the five services, and AWS Backup, the newest, handle idempotence well. The five services all take different approaches! Within AWS, the left hand did not know what the right hand was doing.
 
 ## Why Do We Care about AWS Inconsitencies?
 
