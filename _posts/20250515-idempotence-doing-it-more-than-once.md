@@ -34,7 +34,7 @@ AWS comprises hundreds of services, [launched at different times](https://en.m.w
     ```json
          "StartingInstances": [
               {
-                  "InstanceId": "[...]",
+                  "InstanceId": "[redacted]",
                   "CurrentState": {
                       "Code": 16,
                       "Name": "running"
@@ -51,7 +51,7 @@ AWS comprises hundreds of services, [launched at different times](https://en.m.w
 
     ```text
     An error occurred (InvalidDBInstanceState) when calling the
-    StartDBInstance operation: Instance [...] cannot be started
+    StartDBInstance operation: Instance [redacted] cannot be started
     as it is not in one of the following statuses: 'stopped, 
     inaccessible-encryption-credentials-recoverable, incompatible-network
     (only valid for non-SqlServer instances)'.
@@ -61,7 +61,7 @@ AWS comprises hundreds of services, [launched at different times](https://en.m.w
 
     ```text
     An error occurred (InvalidDBClusterStateFault) when calling
-    the StartDBCluster operation: DbCluster [...] is in available
+    the StartDBCluster operation: DbCluster [redacted] is in available
     state but expected it to be one of stopped,
     inaccessible-encryption-credentials-recoverable.
     ```
