@@ -26,7 +26,7 @@ AWS consists of hundreds of services. Lights Off uses five. AWS built the servic
 |EC2||`StartInstances`<br/>`StopInstances`|Automatic|||
 |RDS|After EC2|`StartDBInstance`<br/>`StopDBInstance`|None|`InvalidDBInstanceStateFault`<br/>`InvalidDBInstanceState`||
 |Aurora|After RDS| `StartDBCluster`<br/>`StopDBCluster`|Error-handling|`InvalidDBClusterStateFault`||
-|CloudFormation|Before Aurora|`UpdateStack`|Token||`ClientRequestToken`<br/>&le;128 characters;<br/>letters, numbers, hyphens only|
+|CloudFormation|Before Aurora|`UpdateStack`|Token||`ClientRequestToken`<br/>&le;128 letters, numbers, hyphens|
 |AWS Backup|After the others|`StartBackupJob`|Token||`IdempotencyToken`|
 
 1. Of the five services used, **EC2 (Elastic Compute Cloud)** came first. Its `StartInstances` and `StopInstances` commands are idempotent. If I try to start a compute instance that is already running, my request succeeds. (The response message kindly tells me that the instance was already running at the exact time of my request, in case I need to know.)
