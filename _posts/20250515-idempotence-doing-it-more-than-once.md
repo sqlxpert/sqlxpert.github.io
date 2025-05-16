@@ -47,7 +47,7 @@ AWS comprises hundreds of services, [launched at different times](https://en.m.w
           ]
     ```
 
- 2. **RDS (Relational Database Service)** was built on EC2, but its `StartDBInstance` and `StopDBInstance` commands are non-idempotent. If I try to start a database that is already running, I get an error. The error is named `InvalidDBInstanceStateFault` but the error code is `InvalidDBInstanceState` . (The difference is a bug waiting to happen!) The long but uninformative error message doesn't tell me that the database was already running (available) at the exact time of my request, so I cannot decide whether to ignore the error (because my start command was indeed a harmless repeat) or take it seriously (because the database was in a bad state and could not be started).
+ 2. **RDS (Relational Database Service)** was built on EC2, but its `StartDBInstance` and `StopDBInstance` commands are non-idempotent. If I try to start a database that is already running, I get an error. The error is named `InvalidDBInstanceStateFault` but the error code is `InvalidDBInstanceState` . (The difference is a bug waiting to happen!) The only thing that the long but uninformative error message doesn't tell me is that the database was already running (available) at the exact time of my request. I cannot decide whether to ignore the error (because my start command was indeed a harmless repeat) or take it seriously (because the database was in a bad state and could not be started).
 
     ```text
     An error occurred (InvalidDBInstanceState) when calling the
