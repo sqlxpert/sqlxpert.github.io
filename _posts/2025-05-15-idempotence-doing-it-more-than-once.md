@@ -10,12 +10,16 @@ If we cannot eliminate repetition, we want to be sure that the result remains th
 
 Compare adding 1 with multiplying by 1. Which operation is idempotent? In other words, which operation gives the same result no matter how many times we repeat it? Now, is adding 0 idempotent? Multiplying by 0?
 
+---
+
 ## AWS Builds Incrementally
 
 My tool for cutting Amazon Web Services cloud computing costs, [github.com/sqlxpert/lights-off-aws](https://github.com/sqlxpert/lights-off-aws#lights-off) , stops computers and databases when they are not needed, and starts them again later. It can delete other kinds of expensive resources, and create them again later. It can also take backups on a schedule.
 These operations _ought to be idempotent_. Trying to start a computer that is already running should not cause an error. Trying to back up a database when a backup was started a few minutes ago should not cause an error, let alone produce another backup.
 
 AWS comprises hundreds of services, [launched at different times](https://en.m.wikipedia.org/wiki/Timeline_of_Amazon_Web_Services). This is [incrementalism](https://en.wikipedia.org/wiki/Incrementalism) : capabilities are added little by little. The advantage is innovation. A potential disadvantage is repeated effort that leads to different, and not necessarily better, results. As you will see, some basic commands in core AWS services are non-idempotent, and this suggests that AWS's internal work processes are non-idempotent. It could be an example of [Conway's Law](https://en.m.wikipedia.org/wiki/Conway%27s_law) : software matches the organization that produces it.
+
+---
 
 ## AWS Services Approach Idempotence Differently
 
@@ -80,11 +84,15 @@ This is the newest of the five services. Its `StartBackupJob` command follows th
 
 EC2, the oldest of the five services, and AWS Backup, the newest, handle idempotence well. The five services all take different approaches! Within AWS, the left hand did not know what the right hand was doing.
 
+---
+
 ## Why Do We Care about AWS Inconsistencies?
 
 Lack of consistency is **expensive**.
 I do not know whether _AWS_ spent more by having each service team proceed independently, or whether it earned more by bringing each service to market faster.
 I do know that every _customer_ using multiple AWS services has to discover the inconsistencies (sometimes by trial-and-error, because not every detail is or can be documented), write extra code to work around them, and then fix the bugs that result from the extra complexity.
+
+---
 
 ## How Can We Avoid Repeating this Pattern?
 
@@ -126,5 +134,3 @@ Obviously, any person shepherding an important design or pull request should add
 We might not always anticipate the consequences of our design and implementation decisions. That is okay. The goal is to **gradually build habits of awareness, responsibility, and reciprocity**. My effort saves other people time, and their efforts save me time. As an organization, we try hard to prevent repetitive work. If it does happen, our disciplined practices encourage consistent results and discourage regression.
 
 Thanks for reading!
-
-Paul Marcelin
