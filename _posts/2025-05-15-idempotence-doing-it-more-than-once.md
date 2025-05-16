@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Doing It More than Once
-author: Paul Marcelin
 ---
 
 # Doing It More than Once
