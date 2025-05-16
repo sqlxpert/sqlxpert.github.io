@@ -12,16 +12,16 @@ If we cannot eliminate repetition, we want to be sure that the result remains th
 
 Compare adding 1 with multiplying by 1. Which operation is idempotent? In other words, which operation gives the same result no matter how many times we repeat it? Now, is adding 0 idempotent? Multiplying by 0?
 
-## AWS Builds Services Incrementally
+## AWS Builds Incrementally
 
 My tool for cutting Amazon Web Services cloud computing costs, [github.com/sqlxpert/lights-off-aws](https://github.com/sqlxpert/lights-off-aws#lights-off) , stops computers and databases when they are not needed, and starts them again later. It can delete other kinds of expensive resources, and create them again later. It can also make backups on a schedule.
 These operations _ought to be idempotent_. Trying to start a computer that is already running should not cause an error. Trying to back up a database when a backup was started a few minutes ago should not cause an error, let alone produce another backup.
 
-AWS consists of hundreds of services. Lights Off uses five. AWS built the services at [different times](https://en.m.wikipedia.org/wiki/Timeline_of_Amazon_Web_Services). This is incrementalism: capabilities are added little by little. Its advantage is rapid innovation. One of its disadvantages is repeated effort that leads to different, and not necessarily better, results. As you will see, some basic commands in core AWS services are non-idempotent, and this suggests that AWS's internal work processes are non-idempotent. It could be an example of [Conway's Law](https://en.m.wikipedia.org/wiki/Conway%27s_law) : the software and the organization that produced it match each other.
+AWS consists of hundreds of services. Lights Off uses five. AWS launched the services at [different times](https://en.m.wikipedia.org/wiki/Timeline_of_Amazon_Web_Services). This is incrementalism: capabilities are added little by little. Its advantage is rapid innovation. One of its disadvantages is repeated effort that leads to different, and not necessarily better, results. As you will see, some basic commands in core AWS services are non-idempotent, and this suggests that AWS's internal work processes are non-idempotent. It could be an example of [Conway's Law](https://en.m.wikipedia.org/wiki/Conway%27s_law) : the software and the organization that produced it match each other.
 
-## AWS Services Approach Idempotence Differently
+## Services Approach Idempotence Differently
 
-|AWS Service|Introduced|Commands|Idempotence<br/>Mechanism|Error Name,<br/>Code (if different)|Token Name,<br/>Rules (if any)|
+|Service|Launched|Commands|Idempotence<br/>Mechanism|Error Name,<br/>Code (if different)|Token Name,<br/>Rules (if any)|
 |:---|:---:|:---:|:---:|:---:|:---:|
 |EC2||`StartInstances`<br/>`StopInstances`|Automatic|||
 |RDS|After EC2|`StartDBInstance`<br/>`StopDBInstance`|None|`InvalidDBInstanceStateFault`<br/>`InvalidDBInstanceState`||
@@ -47,17 +47,15 @@ Inconsistency is **expensive for AWS customers**.
 I do not know whether AWS spent more by having each service team reinvent the wheel, or whether it earned more by bringing each service to market faster.
 I do know that every customer using multiple AWS services has to discover their inconsistencies (sometimes by trial-and-error, because not every detail is or can be documented), write extra code to work around them, and then fix bugs that result from the extra complexity.
 
-## How Can We Avoid Repeating this Pattern Ourselves?
+## How Can We Avoid Imitating this Pattern?
 
 As frustrating as inconsistency is to me as a software engineer, it is even more frustrating to me as an MBA. I offer this three-part solution for our own organizations: 
 
 ### A. Document Standards Centrally and Succinctly
 
-I am not talking about a Confluence page tree of stale documents, requests for comment (RFCs), and so on. Nobody will read that. Anyone who does look will get discouraged because one author after another is inevitably "A former colleague".
+I am not talking about a Confluence page tree of stale documents, requests for comment (RFCs), and so on. Nobody will read that. Anyone who does look will get nervous because one author after another is labeled "A former colleague".
 
-The goal is **to foster awareness, not to cover every detail**. Fit the list of standards to one or two pages. Group the entries by topic. Limit each entry to one sentence. It is sufficient to write, "Dates and times: For code added after April, 2025, use ISO 8601 basic (no punctuation) format." If necessary, link to a detailed document or, better yet, to real code.
-
-For the purposes of this article, you could write:
+The goal is **to foster awareness, not to cover every detail**. Fit the list of standards to one or two pages. Group the entries by topic. Limit each entry to one sentence. If necessary, link to a detailed document or, better yet, to real code. For the purposes of this article, you could write:
 
 * If you prefer the EC2 approach:
   * "Idempotence: Repeated requests succeed, and the response mentions the initial state."
