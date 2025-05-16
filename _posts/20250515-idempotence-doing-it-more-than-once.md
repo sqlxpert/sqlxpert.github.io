@@ -1,7 +1,7 @@
 ---
 title: Doing It More than Once
 layout: post
-date: '2025-05-15'
+date: '2025-05-15 20:45:00 +0700'
 ---
 
 # Doing It More than Once
