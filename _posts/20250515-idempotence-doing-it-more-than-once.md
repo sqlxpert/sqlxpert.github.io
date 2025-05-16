@@ -1,4 +1,7 @@
 ---
+title: Doing It More than Once
+layout: post
+date: '2025-05-15'
 ---
 
 # Doing It More than Once
