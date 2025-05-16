@@ -74,7 +74,7 @@ incompatible-network (only valid for non-SqlServer instances)'.
 
 ### 3. Aurora
 
-This newer relational database service's `StartDBCluster` and `StopDBCluster` commands produce an error with a matching error name and error code, `InvalidDBClusterStateFault` . More importantly, the dynamic error message tells me that the database was already running (available) at the exact time of my request. I receive enough information to decide to ignore the error, achieving idempotence after the fact.
+This newer relational database service's `StartDBCluster` and `StopDBCluster` commands produce an error with a matching error name and error code, `InvalidDBClusterStateFault` . More importantly, the dynamic error message tells me that the database was already running (available) at the exact time of my request. Ignoring the error achieves idempotence after the fact.
 
 ```text
 An error occurred (InvalidDBClusterStateFault) when calling the StartDBCluster
