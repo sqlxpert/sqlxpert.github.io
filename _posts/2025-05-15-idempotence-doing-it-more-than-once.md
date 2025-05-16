@@ -128,7 +128,7 @@ The goal is **to promote awareness, not to cover every detail**. Fit the list of
 
 _Which two of the three approaches above are semantically equivalent? Could any one of the three satisfy the idempotence cases for all of the commands listed earlier in the article? If not, which command or pair of commands is special?_
 
-To clarify a one-sentence standard, link to a a few lines of real code in your codebase. If you must, link to an explanatory document. Ideally, it will be an _external_ document. There is no need to invent date and time formats, metadata schemes, representations of numbers and units of measurement, etc. Groups of experts have already done the work; rely on external standards whenever possible.
+To clarify a one-sentence standard, link to a few lines of actual code in your codebase. If you must, link to an explanatory document. Ideally, it will be an _external_ document. There is no need to invent date and time formats, metadata schemes, representations of numbers and units of measurement, etc. Groups of experts have already done the work; rely on external standards whenever possible.
 
 ### B. Review Past Practices when Designing and Coding
 
