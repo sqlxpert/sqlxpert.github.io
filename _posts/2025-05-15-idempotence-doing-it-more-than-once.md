@@ -2,7 +2,8 @@
 layout: post
 title: "Idempotence: Doing It More than Once"
 ---
-Five different AWS services, five different approaches to the same problem! This article is about improving software by improving the organizations that produce it...
+_Five different AWS services, five different approaches to the same problem!<br/>
+Improving your organization also improves your software..._
 
 ---
 ## What Is Idempotence?
