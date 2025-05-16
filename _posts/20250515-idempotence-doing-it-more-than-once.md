@@ -21,7 +21,7 @@ AWS consists of hundreds of services. Lights Off uses five. AWS built the servic
 
 ## AWS Services Approach Idempotence Inconsistently
 
-|AWS Service|Introduced|Commands|Idempotence Mechanism|Error Name, Code|Token Name, Rules|
+|AWS Service|Introduced|Commands|Idempotence<br/>Mechanism|Error Name<br/>Error Code|Token Name<br/>Token Rules|
 |:---|:---:|:---|:---:|:---|:---:|
 |EC2||`StartInstances`<br/>`StopInstances`|Automatic|||
 |RDS|After EC2|`StartDBInstance`<br/>`StopDBInstance`|None|`InvalidDBInstanceStateFault`<br/>`InvalidDBInstanceState`||
