@@ -19,9 +19,9 @@ These operations _ought to be idempotent_. Trying to start a computer that is al
 
 AWS comprises hundreds of services, [launched at different times](https://en.m.wikipedia.org/wiki/Timeline_of_Amazon_Web_Services). This is [incrementalism](https://en.wikipedia.org/wiki/Incrementalism) : capabilities are added little by little. The advantage is innovation. A potential disadvantage is repeated effort that leads to different, and not necessarily better, results. As you will see, some basic commands in core AWS services are non-idempotent, and this suggests that AWS's internal work processes are non-idempotent. It could be an example of [Conway's Law](https://en.m.wikipedia.org/wiki/Conway%27s_law) : software matches the organization that produces it.
 
-## Services Approach Idempotence Differently
+## AWS Services Approach Idempotence Differently
 
-|Service|Launched|Commands|Idempotence<br/>Mechanism|Error Name,<br/>Code (if different)|Token Name,<br/>Rules (if any)|
+|AWS Service|Launched|Commands|Idempotence<br/>Mechanism|Error Name,<br/>Code (if different)|Token Name,<br/>Rules (if any)|
 |:---|:---:|:---:|:---:|:---:|:---:|
 |EC2||`StartInstances`<br/>`StopInstances`|Automatic|||
 |RDS|After EC2|`StartDBInstance`<br/>`StopDBInstance`|None|`InvalidDBInstanceStateFault`<br/>`InvalidDBInstanceState`||
