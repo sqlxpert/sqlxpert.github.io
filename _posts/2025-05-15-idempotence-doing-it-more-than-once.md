@@ -63,7 +63,7 @@ Elastic Compute Cloud is the oldest of the five services. Its `StartInstances` a
 
 ### 2. RDS
 
-Relational Database Service was built on EC2, but its `StartDBInstance` and `StopDBInstance` commands are non-idempotent. If I try to start a database that is already running, I get an error. The error is named `InvalidDBInstanceStateFault` but the error code is `InvalidDBInstanceState` &mdash; a bug waiting to happen! The only thing that the long error message _doesn't_ tell me is that the database was already running (available) at the exact time of my request. I cannot decide whether to ignore the error (because my start command was indeed a harmless repeat) or take it seriously (in case the database was in a bad state and could not start).
+Relational Database Service was built on EC2, but its `StartDBInstance` and `StopDBInstance` commands are non-idempotent. If I try to start a database that is already running, I get an error. The exception is named `InvalidDBInstanceStateFault` but the error code is `InvalidDBInstanceState` &mdash; a bug waiting to happen! The only thing that the long error message _doesn't_ tell me is that the database was already running (available) at the exact time of my request. I cannot decide whether to ignore the error (because my start command was indeed a harmless repeat) or take it seriously (in case the database was in a bad state and could not start).
 
 ```text
 An error occurred (InvalidDBInstanceState) when calling the StartDBInstance
@@ -74,7 +74,7 @@ incompatible-network (only valid for non-SqlServer instances)'.
 
 ### 3. Aurora
 
-This newer relational database service's `StartDBCluster` and `StopDBCluster` commands produce an error with a matching error name and error code, `InvalidDBClusterStateFault` . More importantly, the dynamic error message tells me that the database was already running (available) at the exact time of my request. Safely ignoring the error achieves idempotence after the fact.
+This newer relational database service's `StartDBCluster` and `StopDBCluster` commands produce an error with a matching exception name and error code, `InvalidDBClusterStateFault` . More importantly, the dynamic error message tells me that the database was already running (available) at the exact time of my request. Safely ignoring the error achieves idempotence after the fact.
 
 ```text
 An error occurred (InvalidDBClusterStateFault) when calling the StartDBCluster
