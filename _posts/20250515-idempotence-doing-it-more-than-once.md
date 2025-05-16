@@ -19,7 +19,7 @@ These operations _ought to be idempotent_. Trying to start a computer that is al
 
 AWS consists of hundreds of services. Lights Off uses five. AWS built the services at [different times](https://en.m.wikipedia.org/wiki/Timeline_of_Amazon_Web_Services). This is incrementalism: capabilities are added little by little. Its advantage is rapid innovation. One of its disadvantages is repeated effort that leads to different, and not necessarily better, results. As you will see, some basic commands in core AWS services are non-idempotent, and this suggests that AWS's internal work processes are non-idempotent. It could be an example of [Conway's Law](https://en.m.wikipedia.org/wiki/Conway%27s_law) : the software and the organization that produced it match each other.
 
-## AWS Services Approach Idempotence Inconsistently
+## AWS Services Approach Idempotence Differently
 
 |AWS Service|Introduced|Commands|Idempotence<br/>Mechanism|Error Name,<br/>Code (if different)|Token Name,<br/>Rules (if any)|
 |:---|:---:|:---:|:---:|:---:|:---:|
@@ -31,7 +31,7 @@ AWS consists of hundreds of services. Lights Off uses five. AWS built the servic
 
 1. Of the five services used, **EC2 (Elastic Compute Cloud)** came first. Its `StartInstances` and `StopInstances` commands are idempotent. If I try to start a compute instance that is already running, my request succeeds. (The response message kindly tells me that the instance was already running at the exact time of my request, in case I need to know.)
 
-2. **RDS (Relational Database Service)** was built on EC2, but its `StartDBInstance` and `StopDBInstance` commands are non-idempotent. If I try to start a database that is already running, I get an error. The error is named `InvalidDBInstanceStateFault` but the error code is `InvalidDBInstanceState` . (The missing suffix is a bug waiting to happen!) The error message doesn't tell me that the database was already running at the exact time of my request, so I cannot decide whether to ignore the error (because my start command was indeed a harmless repeat) or take it seriously (because the database was in a bad state and could not be started).
+2. **RDS (Relational Database Service)** was built on EC2, but its `StartDBInstance` and `StopDBInstance` commands are non-idempotent. If I try to start a database that is already running, I get an error. The error is named `InvalidDBInstanceStateFault` but the error code is `InvalidDBInstanceState` . (This difference is a bug waiting to happen!) The error message doesn't tell me that the database was already running at the exact time of my request, so I cannot decide whether to ignore the error (because my start command was indeed a harmless repeat) or take it seriously (because the database was in a bad state and could not be started).
 
 3. **Aurora**, a newer database service, is similar, but its `StartDBCluster` and `StopDBCluster` commands are better. First, the error they produce shares the same name and error code, `InvalidDBClusterStateFault` . Second, the error message tells me what state the database was in at the exact time of my request. I receive enough information to decide whether to ignore the error (achieving idempotence after the fact) or take it seriously.
 
