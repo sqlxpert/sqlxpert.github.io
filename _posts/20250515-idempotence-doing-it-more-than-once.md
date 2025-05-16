@@ -82,15 +82,15 @@ This is the newest of the five services. Its `StartBackupJob` command follows th
 
 EC2, the oldest of the five services, and AWS Backup, the newest, handle idempotence well. The five services all take different approaches! Within AWS, the left hand did not know what the right hand was doing.
 
-## Why Do We Care about AWS Inconsitencies?
+## Why Do We Care about AWS Inconsistencies?
 
-Inconsistency is **expensive**.
+Lack of consistency is **expensive**.
 I do not know whether _AWS_ spent more by having each service team proceed independently, or whether it earned more by bringing each service to market faster.
 I do know that every _customer_ using multiple AWS services has to discover the inconsistencies (sometimes by trial-and-error, because not every detail is or can be documented), write extra code to work around them, and then fix the bugs that result from the extra complexity.
 
 ## How Can We Avoid Repeating this Pattern?
 
-As frustrating as inconsistency is to me as a software engineer, it is even more frustrating to me as an MBA. I offer a three-part solution for our own organizations: 
+As frustrating as the lack of consistency is to me as a software engineer, it is even more frustrating to me as an MBA. I offer a three-part solution for our own organizations: 
 
 ### A. Document Standards Centrally and Succinctly
 
