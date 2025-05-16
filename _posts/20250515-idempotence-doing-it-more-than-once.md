@@ -115,7 +115,7 @@ The goal is **to foster awareness, not to cover every detail**. Fit the list of 
 
 A review of past practices belongs in every important design, and also in the description of an important pull request (proposed code).
 
-Add this to the "definition of done". Allocate time in proportion to the cost of changing the system later. For example, spend extra time searching for past practices when you are designing or implementing a public application programming interface (API), like AWS. Once customers and their code depend on your API, changing the semantics becomes practically impossible.
+Add this to the "definition of done". Allocate time in proportion to the cost of changing the system later. For example, spend extra time searching for past practices when you are designing or implementing a public application programming interface (API). As soon as customers and their code depend on your API, changing the semantics becomes practically impossible.
 
 Do not let searching for past practices devolve into a perfunctory step, a mere checkbox in a template. If you found no past practice, mention where you looked and what you looked for. Documenting the absence of information is as important as documenting the information.
 
