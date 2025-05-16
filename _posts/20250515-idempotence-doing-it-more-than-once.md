@@ -47,7 +47,7 @@ AWS comprises hundreds of services, [launched at different times](https://en.m.w
           ]
     ```
 
- 2. **RDS (Relational Database Service)** was built on EC2, but its `StartDBInstance` and `StopDBInstance` commands are non-idempotent. If I try to start a database that is already running, I get an error. The error is named `InvalidDBInstanceStateFault` but the error code is `InvalidDBInstanceState` . (The difference is a bug waiting to happen!) The error message doesn't tell me that the database was already running (available) at the exact time of my request, so I cannot decide whether to ignore the error (because my start command was indeed a harmless repeat) or take it seriously (because the database was in a bad state and could not be started).
+ 2. **RDS (Relational Database Service)** was built on EC2, but its `StartDBInstance` and `StopDBInstance` commands are non-idempotent. If I try to start a database that is already running, I get an error. The error is named `InvalidDBInstanceStateFault` but the error code is `InvalidDBInstanceState` . (The difference is a bug waiting to happen!) The wordy but fixed (exception for the database instance name) error message doesn't tell me that the database was already running (available) at the exact time of my request, so I cannot decide whether to ignore the error (because my start command was indeed a harmless repeat) or take it seriously (because the database was in a bad state and could not be started).
 
     ```text
     An error occurred (InvalidDBInstanceState) when calling the
@@ -57,7 +57,7 @@ AWS comprises hundreds of services, [launched at different times](https://en.m.w
     (only valid for non-SqlServer instances)'.
     ```
 
- 3. **Aurora**, a newer database service, is similar to RDS, but the error that its `StartDBCluster` and `StopDBCluster` commands produce has a consistent name and error code, `InvalidDBClusterStateFault` . More importantly, the error message tells me that the database was already running (available) at the exact time of my request. I receive enough information to decide to ignore the error (achieving idempotence after the fact) instead of taking it seriously in this case.
+ 3. **Aurora**, a newer database service, is similar to RDS, but the error that its `StartDBCluster` and `StopDBCluster` commands produce has a consistent name and error code, `InvalidDBClusterStateFault` . More importantly, a dynamic error message tells me that the database was already running (available) at the exact time of my request. I receive enough information to decide to ignore the error (achieving idempotence after the fact) instead of taking it seriously in this case.
 
     ```text
     An error occurred (InvalidDBClusterStateFault) when calling
