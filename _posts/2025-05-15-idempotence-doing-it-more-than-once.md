@@ -1,14 +1,7 @@
 ---
 layout: post
-title: Doing It More than Once
+title: "Idempotence: Doing It More than Once"
 ---
-
-# Doing It More than Once
-
-Paul Marcelin
-
-## What Is Idempotence?
-
 In organizations, just as in software, it is best to do work one time, and one time only.
 Preventing repetition is difficult, and the results of repetition can be costly. In a modern software system, a circumstance (an [event](https://aws.amazon.com/event-driven-architecture/)) that triggers an action might be reported more than one time, or a message in a [queue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-types.html) might be delivered for processing more than one time.
 In a large or long-lived organization, people who know nothing of each other might solve the same problem more than one time.
