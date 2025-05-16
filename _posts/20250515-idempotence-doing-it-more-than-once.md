@@ -17,7 +17,7 @@ Compare adding 1 with multiplying by 1. Which operation is idempotent? In other 
 My tool for cutting Amazon Web Services cloud computing costs, [github.com/sqlxpert/lights-off-aws](https://github.com/sqlxpert/lights-off-aws#lights-off) , stops computers and databases when they are not needed, and starts them again later. It can delete other kinds of expensive resources, and create them again later. It can also make backups on a schedule.
 These operations _ought to be idempotent_. Trying to start a computer that is already running should not cause an error. Trying to back up a database when a backup was started a few minutes ago should not cause an error, let alone produce another backup.
 
-AWS comprises hundreds of services, [launched at different times](https://en.m.wikipedia.org/wiki/Timeline_of_Amazon_Web_Services). This is [incrementalism](https://en.wikipedia.org/wiki/Incrementalism): capabilities are added little by little. Its advantage is rapid innovation. One of its potential disadvantages is repeated effort that leads to different, and not necessarily better, results. As you will see, some basic commands in core AWS services are non-idempotent, and this suggests that AWS's internal work processes are non-idempotent. It could be an example of [Conway's Law](https://en.m.wikipedia.org/wiki/Conway%27s_law) : the software and the organization that produced it match each other.
+AWS comprises hundreds of services, [launched at different times](https://en.m.wikipedia.org/wiki/Timeline_of_Amazon_Web_Services). This is [incrementalism](https://en.wikipedia.org/wiki/Incrementalism): capabilities are added little by little. The advantage is innovation. A potential disadvantage is repeated effort that leads to different, and not necessarily better, results. As you will see, some basic commands in core AWS services are non-idempotent, and this suggests that AWS's internal work processes are non-idempotent. It could be an example of [Conway's Law](https://en.m.wikipedia.org/wiki/Conway%27s_law) : the software and the organization that produced it match each other.
 
 ## Services Approach Idempotence Differently
 
@@ -29,15 +29,46 @@ AWS comprises hundreds of services, [launched at different times](https://en.m.w
 |CloudFormation|Before Aurora|`UpdateStack`|Token||`ClientRequestToken`<br/>&le;128 letters, numbers, hyphens|
 |AWS Backup|After the others|`StartBackupJob`|Token||`IdempotencyToken`|
 
-1. Of the five services used, **EC2 (Elastic Compute Cloud)** came first. Its `StartInstances` and `StopInstances` commands are idempotent. If I try to start a compute instance that is already running, my request succeeds. (The response message kindly tells me that the instance was already running at the exact time of my request, in case I need to know.)
+ 1. Of the five services used, **EC2 (Elastic Compute Cloud)** came first. Its `StartInstances` and `StopInstances` commands are idempotent. If I try to start a compute instance that is already running, my request succeeds. The response message kindly tells me that the instance was already running at the exact time of my request, in case I need to know.
 
-2. **RDS (Relational Database Service)** was built on EC2, but its `StartDBInstance` and `StopDBInstance` commands are non-idempotent. If I try to start a database that is already running, I get an error. The error is named `InvalidDBInstanceStateFault` but the error code is `InvalidDBInstanceState` . (The difference is a bug waiting to happen!) The error message doesn't tell me that the database was already running at the exact time of my request, so I cannot decide whether to ignore the error (because my start command was indeed a harmless repeat) or take it seriously (because the database was in a bad state and could not be started).
+    ```json
+         "StartingInstances": [
+              {
+                  "InstanceId": "[...]",
+                  "CurrentState": {
+                      "Code": 16,
+                      "Name": "running"
+                  },
+                  "PreviousState": {
+                      "Code": 16,
+                      "Name": "running"
+                  }
+              }
+          ],
+    ```
 
-3. **Aurora**, a newer database service, is similar, but the error that its `StartDBCluster` and `StopDBCluster` commands produce shares the same name and error code, `InvalidDBClusterStateFault` . More importantly, the error message tells me what state the database was in at the exact time of my request. I receive enough information to decide whether to ignore the error (achieving idempotence after the fact) or take it seriously.
+ 2. **RDS (Relational Database Service)** was built on EC2, but its `StartDBInstance` and `StopDBInstance` commands are non-idempotent. If I try to start a database that is already running, I get an error. The error is named `InvalidDBInstanceStateFault` but the error code is `InvalidDBInstanceState` . (The difference is a bug waiting to happen!) The error message doesn't tell me that the database was already running (available) at the exact time of my request, so I cannot decide whether to ignore the error (because my start command was indeed a harmless repeat) or take it seriously (because the database was in a bad state and could not be started).
 
-4. **CloudFormation**, a service that creates and deletes all kinds of resources, and that predates Aurora, has an  optionally idempotent `UpdateStack` command. I can specify a known value, a token. If all the details, including the token, match, then repeated requests succeed; CloudFormation acts on the first request only. The token is named `ClientRequestToken` , cannot contain punctuation other than hyphens, and cannot be more than 128 characters long. Lights Off runs every ten minutes, so I set the token to the start of the ten-minute interval. I have to remove the colon that separates hours from minutes. The time still conforms to the ISO 8601 standard, but it becomes a little harder for humans to decipher (for example, `1510` instead of `15:10`).
+    ```text
+    An error occurred (InvalidDBInstanceState) when calling the
+    StartDBInstance operation: Instance [...] cannot be started
+    as it is not in one of the following statuses: 'stopped, 
+    inaccessible-encryption-credentials-recoverable, incompatible-network
+    (only valid for non-SqlServer instances)'.
+    ```
 
-5. **AWS Backup** is the newest of the five services. Its `StartBackupJob` command follows the same approach as CloudFormation, but the token is named `IdempotencyToken` , can contain punctuation, and is not limited to 128 characters.
+ 3. **Aurora**, a newer database service, is similar to RDS, but the error that its `StartDBCluster` and `StopDBCluster` commands produce has a consistent name and error code, `InvalidDBClusterStateFault` . More importantly, the error message tells me that the database was already running (available) at the exact time of my request. I receive enough information to decide to ignore the error (achieving idempotence after the fact) instead of taking it seriously in this case.
+
+    ```text
+    An error occurred (InvalidDBClusterStateFault) when calling
+    the StartDBCluster operation: DbCluster [...] is in available
+    state but expected it to be one of stopped,
+    inaccessible-encryption-credentials-recoverable.
+    ```
+
+ 4. **CloudFormation**, a service that creates and deletes all kinds of resources, and that predates Aurora, has an  optionally idempotent `UpdateStack` command. I can specify a known value, a token. If all the details, including the token, match, then repeated requests succeed; CloudFormation acts on the first request only. The token is named `ClientRequestToken` , cannot contain punctuation other than hyphens, and cannot be more than 128 characters long. Lights Off runs every ten minutes, so I set the token to the start of the ten-minute interval. I have to remove the colon that separates hours from minutes. The time still conforms to the ISO 8601 standard, but it becomes a little harder for humans to decipher (for example, `1510` instead of `15:10`).
+
+ 5. **AWS Backup** is the newest of the five services. Its `StartBackupJob` command follows the same approach as CloudFormation, but the token is named `IdempotencyToken` , can contain punctuation, and is not limited to 128 characters.
 
 EC2, the oldest of the five services, and AWS Backup, the newest, handle idempotence well. The five services all take a different approach! Inside AWS, the left hand did not know what the right hand was doing.
 
