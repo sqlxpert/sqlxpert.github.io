@@ -14,10 +14,10 @@ Compare adding 1 with multiplying by 1. Which operation is idempotent? In other 
 
 ## AWS Builds Incrementally
 
-My tool for cutting Amazon Web Services cloud computing costs, [github.com/sqlxpert/lights-off-aws](https://github.com/sqlxpert/lights-off-aws#lights-off) , stops computers and databases when they are not needed, and starts them again later. It can delete other kinds of expensive resources, and create them again later. It can also make backups on a schedule.
+My tool for cutting Amazon Web Services cloud computing costs, [github.com/sqlxpert/lights-off-aws](https://github.com/sqlxpert/lights-off-aws#lights-off) , stops computers and databases when they are not needed, and starts them again later. It can delete other kinds of expensive resources, and create them again later. It can also take backups on a schedule.
 These operations _ought to be idempotent_. Trying to start a computer that is already running should not cause an error. Trying to back up a database when a backup was started a few minutes ago should not cause an error, let alone produce another backup.
 
-AWS comprises hundreds of services, [launched at different times](https://en.m.wikipedia.org/wiki/Timeline_of_Amazon_Web_Services). This is [incrementalism](https://en.wikipedia.org/wiki/Incrementalism): capabilities are added little by little. The advantage is innovation. A potential disadvantage is repeated effort that leads to different, and not necessarily better, results. As you will see, some basic commands in core AWS services are non-idempotent, and this suggests that AWS's internal work processes are non-idempotent. It could be an example of [Conway's Law](https://en.m.wikipedia.org/wiki/Conway%27s_law) : the software and the organization that produced it match each other.
+AWS comprises hundreds of services, [launched at different times](https://en.m.wikipedia.org/wiki/Timeline_of_Amazon_Web_Services). This is [incrementalism](https://en.wikipedia.org/wiki/Incrementalism) : capabilities are added little by little. The advantage is innovation. A potential disadvantage is repeated effort that leads to different, and not necessarily better, results. As you will see, some basic commands in core AWS services are non-idempotent, and this suggests that AWS's internal work processes are non-idempotent. It could be an example of [Conway's Law](https://en.m.wikipedia.org/wiki/Conway%27s_law) : the software and the organization that produced it match each other.
 
 ## Services Approach Idempotence Differently
 
