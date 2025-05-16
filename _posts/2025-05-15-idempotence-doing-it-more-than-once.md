@@ -1,10 +1,12 @@
 ---
 layout: post
+title: Doing It More than Once
+author: Paul Marcelin
 ---
 
 # Doing It More than Once
 
-Paul Marcelin, 2025-05-15
+Paul Marcelin
 
 ## What Is Idempotence?
 
