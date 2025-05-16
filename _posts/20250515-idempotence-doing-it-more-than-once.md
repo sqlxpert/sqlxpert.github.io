@@ -57,7 +57,7 @@ AWS comprises hundreds of services, [launched at different times](https://en.m.w
     (only valid for non-SqlServer instances)'.
     ```
 
- 3. **Aurora**, a newer database service, is similar to RDS, but its `StartDBCluster` and `StopDBCluster` commands produce an error with a matching error name and error code, `InvalidDBClusterStateFault` . More importantly, the dynamic error message tells me that the database was already running (available) at the exact time of my request. I receive enough information to decide to ignore the error (achieving idempotence after the fact) instead of taking it seriously in this case.
+ 3. **Aurora**, a newer database service, is similar to RDS, but its `StartDBCluster` and `StopDBCluster` commands produce an error with a matching error name and error code, `InvalidDBClusterStateFault` . More importantly, the dynamic error message tells me that the database was already running (available) at the exact time of my request. I receive enough information to decide to ignore the error, achieving idempotence after the fact.
 
     ```text
     An error occurred (InvalidDBClusterStateFault) when calling
