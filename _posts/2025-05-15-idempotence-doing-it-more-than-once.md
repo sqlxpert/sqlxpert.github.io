@@ -33,7 +33,7 @@ Lights Off uses five AWS services. As you will see, some basic commands in core 
 
 ## AWS Services Approach Idempotence Differently
 
-|AWS Service|Launched|Commands|Idempotence<br/>Mechanism|Exception Name,Error <br/>Code (if different)|Token Name,<br/>Restrictions (if any)|
+|AWS Service|Launched|Commands|Idempotence<br/>Mechanism|Exception Name<br/>+ Error Code (if different)|Token Name<br/>+ Restrictions (if any)|
 |:---|:---:|:---:|:---:|:---:|:---:|
 |EC2||`StartInstances`<br/>`StopInstances`|Built in|||
 |RDS|After EC2|`StartDBInstance`<br/>`StopDBInstance`|Not idempotent|`InvalidDBInstanceStateFault`<br/>`InvalidDBInstanceState`||
@@ -88,7 +88,7 @@ This service, which creates and deletes all kinds of resources, predates Aurora.
 
 ### 5. AWS Backup
 
-This is the newest of the five services. Its `StartBackupJob` command follows the same approach as CloudFormation, but the token is named `IdempotencyToken` . There are no limits on the length or the allowable characters.
+This is the newest of the five services. Its `StartBackupJob` command follows the same approach as CloudFormation, but the token is named `IdempotencyToken` . There are no stated limits to the length or the allowable characters.
 
 ### Comparison
 
