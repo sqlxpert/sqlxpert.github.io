@@ -126,3 +126,5 @@ Even a short list of standards can quickly fall out-of-date. Assign two members 
 Obviously, any person shepherding an important design or pull request should add to the standards list when setting a precedent, and update it when improving on a past practice. That is worthy of recognition, too. It is not, however, a substitute for informed, periodic editing of the list of standards.
 
 We might not always anticipate the consequences of our design and implementation decisions. That is okay. The goal is to **gradually build habits of awareness, responsibility, and reciprocity**. My effort saves other people time, and their efforts save me time. As an organization, we try hard to prevent repetitive work. If it does happen, our disciplined practices encourage consistent results and discourage regression.
+
+Thank you for reading!
