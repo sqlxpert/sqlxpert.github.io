@@ -1,5 +1,6 @@
 html {
   font-size: 100%;
+  line-height: 100%;
 }
 
 /**
@@ -160,7 +161,7 @@ pre,
 code {
   font-family: $code-font-family;
   background-color: $code-background-color;
-  font-size: 85%;
+  font-size: 90%;
 
   @include media-query($on-palm) {
     font-family: monospace;
