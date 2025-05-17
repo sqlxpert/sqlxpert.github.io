@@ -15,7 +15,7 @@ about addition and multiplication, and the numbers 0 and 1!_
 ## What Is Idempotence?
 
 In organizations, just as in software, it is best to do work one time, and one time only.
-Preventing repetition is difficult, and the results of repetition can be costly. In a modern software system, a circumstance (an [event](https://aws.amazon.com/event-driven-architecture/)) might be reported more than one time, or a message in a [queue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-types.html) might be delivered for processing more than one time.
+Preventing repetition is difficult, and the results of repetition can be costly. In a modern software system, code might be triggered more than once because a circumstance (an [event](https://aws.amazon.com/event-driven-architecture/)) is reported, or a message in a [queue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-types.html) is delivered, more than once.
 In a large or long-lived organization, people who know nothing of each other might solve the same problem more than once.
 
 If we cannot eliminate repetition, we want to be sure that the result remains the same (or gets better, but never worse). This is my plain-language definition of [idempotence](https://en.wikipedia.org/wiki/Idempotence) .
