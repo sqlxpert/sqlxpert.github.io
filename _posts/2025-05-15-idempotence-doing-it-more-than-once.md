@@ -10,7 +10,6 @@ to know programming or AWS to benefit. To understand idempotence,<br/>
 just think about addition and multiplication, and 0 and 1!_
 
 ## What Is Idempotence?
----
 
 In organizations, just as in software, it is best to do work one time, and one time only.
 Preventing repetition is difficult, and the results of repetition can be costly. In a modern software system, code might be triggered more than once because a circumstance (an [event](https://aws.amazon.com/event-driven-architecture/)) is reported, or a message in a [queue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-types.html) is delivered, more than once.
@@ -21,7 +20,6 @@ If we cannot eliminate repetition, we want to be sure that the result remains th
 _Compare adding 1 with multiplying by 1. Which operation is idempotent? In other words, which operation gives the same result no matter how many times we repeat it? Now, is adding 0 idempotent? Multiplying by 0?_
 
 ## AWS Builds Incrementally
----
 
 Amazon Web Services comprises hundreds of services, [launched at different times](https://en.m.wikipedia.org/wiki/Timeline_of_Amazon_Web_Services). This is [incrementalism](https://en.wikipedia.org/wiki/Incrementalism) : capabilities are added little by little. The advantage is innovation. A potential disadvantage is repeated effort that leads to different, and not necessarily better, results.
 
@@ -31,7 +29,6 @@ These operations _ought to be idempotent_. Trying to start a computer that is al
 Lights Off uses five AWS services. As you will see, some basic commands in core AWS services are non-idempotent, and this suggests that AWS's work processes are non-idempotent. It could be an example of [Conway's Law](https://en.m.wikipedia.org/wiki/Conway%27s_law) : software matches the organization that produces it.
 
 ## AWS Services Approach Idempotence Differently
----
 
 |AWS Service|Launched|Commands|Idempotence<br/>Mechanism|Exception Name<br/>+ Error Code (if different)|Token Name<br/>+ Restrictions (if any)|
 |:---|:---:|:---:|:---:|:---:|:---:|
@@ -103,7 +100,6 @@ I do know that every _customer_ using multiple AWS services has to discover the 
 For a specific example, consider the major update from version 1 to version 2 of the AWS command-line interface (CLI). Part of the work involved covering up disparate date and time representations used by different AWS services. In version 1, customers paid for the lack of consistency. Eventually, AWS paid, by [having version 2 of the CLI convert outputs to an ISO 8601 standard date and time format](https://docs.aws.amazon.com/cli/latest/userguide/cliv2-migration-changes.html#cliv2-migration-timestamp).
 
 ## How Can We Avoid Repeating this Pattern?
----
 
 As frustrating as the lack of consistency is to me as a software engineer, it is even more frustrating to me as an MBA. I propose a three-part solution for our own organizations: 
 
