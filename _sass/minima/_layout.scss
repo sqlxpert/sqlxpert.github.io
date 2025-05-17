@@ -211,6 +211,10 @@
   margin-left: 0;
   list-style: none;
 
+  > ul {
+    padding-left: 0;
+  }
+  
   > li {
     margin-bottom: 1em;
     
@@ -222,8 +226,6 @@
 
     > p {
       margin-top: 0;
-      margin-left: 2em;
-      width: 67%;
     }
   }
 }
