@@ -12,8 +12,6 @@
 }
 
 .site-title {
-  font-size: 100%;
-  letter-spacing: -1px;
   margin-bottom: 0;
   float: left;
 
@@ -127,7 +125,6 @@
 }
 
 .footer-heading {
-  font-size: 112%;
   margin-bottom: $spacing-unit * .5;
 }
 
@@ -143,7 +140,6 @@
 
 .footer-col-wrapper,
 .social-links {
-  font-size: 93%;
   color: $brand-color-dimmed;
 }
 
@@ -206,11 +202,9 @@
 }
 
 .page-heading {
-  font-size: 100%;
 }
 
 .post-list-heading {
-  font-size: 100%;
 }
 
 .post-list {
@@ -223,13 +217,11 @@
 }
 
 .post-meta {
-  font-size: $small-font-size;
   color: $brand-color-dimmed;
 }
 
 .post-link {
   display: block;
-  font-size: 100%;
 }
 
 
@@ -260,11 +252,7 @@
 
 .post-title,
 .post-content h1 {
-  margin-bottom: 10px;
-  letter-spacing: -1px;
-
   @media screen and (min-width: $on-large) {
-    font-size: 100%;
   }
 }
 
@@ -272,36 +260,26 @@
   margin-bottom: $spacing-unit;
 
   h2 {
-    font-size: 100%;
-
     @media screen and (min-width: $on-large) {
-      font-size: 100%;
     }
   }
 
   h3 {
-    font-size: 100%;
-
     @media screen and (min-width: $on-large) {
-      font-size: 100%;
     }
   }
 
   h4 {
-    font-size: 100%;
   }
 
   h5 {
-    font-size: 100%;
   }
   h6 {
-    font-size: 100%;
   }
 }
 
 .comments-disabled-message {
   text-align: center;
-  font-weight: 300;
 }
 
 .social-media-list {
