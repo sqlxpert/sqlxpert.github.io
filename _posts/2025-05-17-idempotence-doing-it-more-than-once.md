@@ -135,4 +135,4 @@ Obviously, any person shepherding an important design or pull request should add
 
 We might not always anticipate the consequences of our design and implementation decisions. That is okay. The goal is to **gradually build habits of awareness, responsibility, and reciprocity**. My effort saves other people time, and their efforts save me time. As an organization, we try hard to prevent repetitive work. If it does happen, our disciplined practices encourage consistent results and discourage regressions.
 
-_Thanks for reading! I will eventually publish answers to the questions, but if you are curious or have ideas to share right away, please get in touch._
+_Thanks for reading! I will eventually publish answers to the questions embedded in the article, but if you are curious or have ideas to share right away, please get in touch._
