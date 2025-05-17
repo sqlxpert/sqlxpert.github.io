@@ -12,8 +12,7 @@
 }
 
 .site-title {
-  @include relative-font-size(1.625);
-  font-weight: 300;
+  font-size: 100%
   letter-spacing: -1px;
   margin-bottom: 0;
   float: left;
@@ -128,7 +127,7 @@
 }
 
 .footer-heading {
-  @include relative-font-size(1.125);
+  font-size: 112%;
   margin-bottom: $spacing-unit * .5;
 }
 
@@ -144,7 +143,7 @@
 
 .footer-col-wrapper,
 .social-links {
-  @include relative-font-size(0.9375);
+  font-size: 93%;
   color: $brand-color-dimmed;
 }
 
@@ -207,11 +206,11 @@
 }
 
 .page-heading {
-  @include relative-font-size(2);
+  font-size: 100%;
 }
 
 .post-list-heading {
-  @include relative-font-size(1.75);
+  font-size: 100%;
 }
 
 .post-list {
@@ -230,7 +229,7 @@
 
 .post-link {
   display: block;
-  @include relative-font-size(1.5);
+  font-size: 100%;
 }
 
 
@@ -247,7 +246,7 @@
 
 .post-meta {
   .bullet-divider { padding-inline: 15px }
-  .meta-label { font-weight: 600 }
+  .meta-label { }
 
   .force-inline {
     display: inline;
@@ -262,46 +261,41 @@
 .post-title,
 .post-content h1 {
   margin-bottom: 10px;
-  @include relative-font-size(2.625);
-  font-weight: $base-font-weight;
   letter-spacing: -1px;
-  line-height: 1.15;
 
   @media screen and (min-width: $on-large) {
-    @include relative-font-size(2.625);
+    font-size: 100%;
   }
 }
 
 .post-content {
   margin-bottom: $spacing-unit;
 
-  h1, h2, h3, h4, h5, h6 { margin-top: $spacing-unit }
-
   h2 {
-    @include relative-font-size(1.75);
+    font-size: 100%;
 
     @media screen and (min-width: $on-large) {
-      @include relative-font-size(2);
+      font-size: 100%;
     }
   }
 
   h3 {
-    @include relative-font-size(1.375);
+    font-size: 100%;
 
     @media screen and (min-width: $on-large) {
-      @include relative-font-size(1.625);
+      font-size: 100%;
     }
   }
 
   h4 {
-    @include relative-font-size(1.25);
+    font-size: 100%;
   }
 
   h5 {
-    @include relative-font-size(1.125);
+    font-size: 100%;
   }
   h6 {
-    @include relative-font-size(1.0625);
+    font-size: 100%;
   }
 }
 
