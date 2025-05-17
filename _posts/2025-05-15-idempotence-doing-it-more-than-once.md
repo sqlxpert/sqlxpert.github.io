@@ -3,8 +3,12 @@ layout: post
 title: "Idempotence: Doing It More than Once"
 ---
 
-_Five different AWS services, five different implementations of a feature!<br/>
-By improving your organization, you can improve your software..._
+_Basic Amazon Web Services commands handle repetition differently.<br/>
+This article explains the consequences and suggests ways<br/>
+to promote consistent software designs and implementations<br/>
+in your own organization. You do not need to know programming<br/>
+or AWS to benefit. To understand idempotence, just think<br/>
+about addition and multiplication, and the numbers 0 and 1!<br/>
 
 ---
 
@@ -126,7 +130,7 @@ The goal is **to promote awareness, not to cover every detail**. Fit the list of
 
 * Idempotence: A repeated request succeeds and is ignored if the `IdempotencyToken` parameter, an arbitrary string, remains the same.
 
-_Which two of the three approaches above are semantically equivalent? Could any one of the three satisfy the idempotence cases for all of the commands listed earlier in the article? If not, which command or pair of commands is special?_
+_Which two of the three approaches above are semantically equivalent? Would any one of the three approaches be enough to make all of the commands listed earlier in the article idempotent? If not, what makes one command or pair of commands special?_
 
 To clarify a one-sentence standard, link to a few lines of actual code in your codebase. If you must, link to an explanatory document. Ideally, it will be an _external_ document. There is no need to invent date and time formats, metadata schemes, representations of numbers and units of measurement, etc. Groups of experts have already done the work; rely on external standards whenever possible.
 
@@ -146,4 +150,5 @@ Obviously, any person shepherding an important design or pull request should add
 
 We might not always anticipate the consequences of our design and implementation decisions. That is okay. The goal is to **gradually build habits of awareness, responsibility, and reciprocity**. My effort saves other people time, and their efforts save me time. As an organization, we try hard to prevent repetitive work. If it does happen, our disciplined practices encourage consistent results and discourage regressions.
 
-Thanks for reading!
+_Thanks for reading! I will publish answers to the questions in the future, but if you are curious or have ideas to share right away, please get in touch._
+
