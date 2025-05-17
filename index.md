@@ -1,5 +1,6 @@
 ---
 layout: home
+title: sqlxpert.github.io
 list_title: Articles
 ---
 
