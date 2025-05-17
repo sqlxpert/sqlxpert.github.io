@@ -30,6 +30,9 @@ layout: base
       </div>
       {%- endif %}
     </div>
+    {%- if page.image -%}
+      <img src="{{- page.image | relative_url -}}" alt="page.image_alt_text">
+    {%- endif -%}
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
