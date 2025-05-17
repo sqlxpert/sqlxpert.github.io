@@ -40,7 +40,7 @@ Lights Off uses five AWS services. As you will see, some basic commands in core 
 |AWS Service|Launched|Commands|Idempotence<br/>Mechanism|Exception Name<br/>+ Error Code (if different)|Token Name<br/>+ Restrictions (if any)|
 |:---|:---:|:---:|:---:|:---:|:---:|
 |EC2||`StartInstances`<br/>`StopInstances`|Built in|||
-|RDS|After EC2|`StartDBInstance`<br/>`StopDBInstance`|**Not idempotent**|`InvalidDBInstanceStateFault`<br/>`InvalidDBInstanceState`||
+|RDS|After EC2|`StartDBInstance`<br/>`StopDBInstance`|**&cross; Not idempotent**|`InvalidDBInstanceStateFault`<br/>`InvalidDBInstanceState`&empty;||
 |Aurora|After RDS| `StartDBCluster`<br/>`StopDBCluster`|User checks an error message|`InvalidDBClusterStateFault`||
 |CloudFormation|Before Aurora|`UpdateStack`|User sets a token||`ClientRequestToken`<br/>&le;128 letters, numbers and hyphens|
 |AWS Backup|After the others|`StartBackupJob`|User sets a token||`IdempotencyToken`|
@@ -67,7 +67,7 @@ Elastic Compute Cloud is the oldest of the five services. Its `StartInstances` a
 
 ### 2. RDS
 
-Relational Database Service was built on EC2, but its `StartDBInstance` and `StopDBInstance` commands are non-idempotent. If I try to start a database that is already running, I get an error. The exception is named `InvalidDBInstanceStateFault` but the error code is `InvalidDBInstanceState` &mdash; a bug waiting to happen! The only thing that the long error message _doesn't_ tell me is that the database was already running (available) at the exact time of my request. I cannot decide whether to ignore the error (because my start command was indeed a harmless repeat) or take it seriously (in case the database was in a bad state and could not start).
+Relational Database Service was built on EC2, but its `StartDBInstance` and `StopDBInstance` commands are non-idempotent. If I try to start a database that is already running, I get an error. The [exception](https://en.wikipedia.org/wiki/Exception_handling) is named `InvalidDBInstanceStateFault` but the error code is `InvalidDBInstanceState` &mdash; a bug waiting to happen! The only thing the long error message _doesn't_ tell me is that the database was already running (available) at the exact time of my request. I cannot decide whether to ignore the error (because my start command was indeed a harmless repeat) or take it seriously (in case the database was in a bad state and could not start).
 
 ```text
 An error occurred (InvalidDBInstanceState) when calling the StartDBInstance
@@ -92,7 +92,7 @@ This service, which creates and deletes all kinds of resources, predates Aurora.
 
 ### 5. AWS Backup
 
-This is the newest of the five services. Its `StartBackupJob` command follows the same approach as CloudFormation, but the token is named `IdempotencyToken` and no specific limits are placed on length or allowable characters.
+This is the newest of the five services. Its `StartBackupJob` command follows the same approach as CloudFormation, but the token is named `IdempotencyToken` and no specific limits are placed on length or permitted characters.
 
 ### Comparison
 
