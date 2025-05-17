@@ -1,3 +1,8 @@
+---
+layout: home
+list_title: Articles
+---
+
 ## Licenses
 
 |Scope|License|Included Copy|
