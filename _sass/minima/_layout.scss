@@ -215,7 +215,12 @@
     margin-bottom: 1em;
     
     > h3 {
-      margin-top: 0em;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    > p {
+      margin-top: 0;
     }
   }
 }
@@ -238,6 +243,10 @@
   padding-bottom: 1em;
   text-align: center;
   border-bottom: 1px solid $border-color-01;
+
+  > h1 
+    margin-bottom: 0;
+  }
 }
 
 .post-meta {
@@ -252,14 +261,13 @@
     }
   }
   .post-authors { margin-top: 3px }
-}
 
-.post-title,
-.post-content h1 {
+  > time {
+    margin-bottom: 0;
+  }
 }
 
 .post-content {
-  margin-bottom: 1em;
 }
 
 .comments-disabled-message {
