@@ -230,8 +230,8 @@
  * Posts
  */
 .post-header {
-  margin-bottom: $spacing-unit;
-  padding-bottom: 18px;
+  margin-bottom: 1em;
+  padding-bottom: 1em;
   text-align: center;
   border-bottom: 1px solid $border-color-01;
 }
@@ -252,30 +252,10 @@
 
 .post-title,
 .post-content h1 {
-  @media screen and (min-width: $on-large) {
-  }
 }
 
 .post-content {
-  margin-bottom: $spacing-unit;
-
-  h2 {
-    @media screen and (min-width: $on-large) {
-    }
-  }
-
-  h3 {
-    @media screen and (min-width: $on-large) {
-    }
-  }
-
-  h4 {
-  }
-
-  h5 {
-  }
-  h6 {
-  }
+  margin-bottom: 1em;
 }
 
 .comments-disabled-message {
