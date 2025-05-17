@@ -3,11 +3,7 @@ layout: post
 title: "Idempotence: Doing It More than Once"
 ---
 
-_Basic Amazon Web Services commands handle repetition differently.<br/>
-This article suggests ways to assure consistent software designs<br/>
-and implementations across your own organization. You do not need<br/>
-to know programming or AWS to benefit. To understand idempotence,<br/>
-just think about addition and multiplication, and 0 and 1!_
+_Basic Amazon Web Services commands handle repetition differently. This article suggests ways to assure consistent software designs and implementations across your own organization. You do not need to know programming or AWS to benefit. To understand idempotence, just think about addition and multiplication, and 0 and 1!_
 
 ## What Is Idempotence?
 
