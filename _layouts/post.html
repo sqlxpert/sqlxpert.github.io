@@ -31,7 +31,7 @@ layout: base
       {%- endif %}
     </div>
     {%- if page.image -%}
-      <img src="{{- page.image | relative_url -}}" alt="page.image_alt_text">
+      <img src="{{- page.image | relative_url -}}" alt="{{page.image_alt_text}}">
     {%- endif -%}
   </header>
 
