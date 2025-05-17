@@ -3,7 +3,7 @@ layout: post
 title: "Idempotence: Doing It More than Once"
 ---
 
-_Basic Amazon Web Services commands handle repetition differently. This article suggests ways to assure consistent software designs and implementations across your own organization. You do not need to know programming or AWS to benefit. To understand idempotence, just think about addition and multiplication, and the numbers 0 and 1!_
+_Basic Amazon Web Services commands handle repetition differently. This article suggests ways to assure consistent software designs and implementations across your own organization. You do not need to know programming or AWS._
 
 ## What Is Idempotence?
 
@@ -12,7 +12,7 @@ Preventing repetition is difficult, and the results of repetition can be costly.
 
 If we cannot eliminate repetition, we want to be sure that the result remains the same (or gets better, but never worse). This is my plain-language definition of [idempotence](https://en.wikipedia.org/wiki/Idempotence) .
 
-_Compare adding 1 with multiplying by 1. Which operation is idempotent? In other words, which operation gives the same result no matter how many times we repeat it? Now, is adding 0 idempotent? Multiplying by 0?_
+_Compare adding 1 with multiplying by 1. Which operation is idempotent? In other words, which operation gives the same result no matter how many times we repeat it? Now, is adding 0 idempotent? Multiplying by 0? If you are not a programmer or an AWS user, feel free to skip any parts of the article that do not apply to you, and resume reading at [Five AWS Services, Compared](#five-aws-services-compared).
 
 ## AWS Builds Incrementally
 
@@ -82,7 +82,7 @@ This service, which creates and deletes all kinds of resources, predates Aurora.
 
 This is the newest of the five services. Its `StartBackupJob` command follows the same approach as CloudFormation, but the token is named `IdempotencyToken` and no specific limits are placed on length or permitted characters.
 
-### Comparison
+### Five AWS Services, Compared
 
 The five services all take different approaches to idempotence. Within AWS, the left hand did not know what the right hand was doing. EC2, the oldest of the five services, and AWS Backup, the newest, handle idempotence well.
 
