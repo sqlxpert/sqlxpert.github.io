@@ -14,7 +14,7 @@ Preventing repetition is difficult, and the results of repetition can be costly.
 
 If we cannot eliminate repetition, we want to be sure that the result remains the same (or gets better, but never worse). This is my plain-language definition of [idempotence](https://en.wikipedia.org/wiki/Idempotence) .
 
-_Compare adding 1 with multiplying by 1. Which operation is idempotent? In other words, which operation gives the same result no matter how many times we repeat it? Now, is adding 0 idempotent? Multiplying by 0? If you are not a programmer or an AWS user, feel free to skip any parts of the article that do not apply to you, and resume reading at [Five AWS Services, Compared](#five-aws-services-compared).
+_Compare adding 1 with multiplying by 1. Which operation is idempotent? In other words, which operation gives the same result no matter how many times we repeat it? Now, is adding 0 idempotent? Multiplying by 0? If you are not a programmer or an AWS user, feel free to skip any parts of the article that do not apply to you, and resume reading at [Five AWS Services, Compared](#five-aws-services-compared)._
 
 ## AWS Builds Incrementally
 
