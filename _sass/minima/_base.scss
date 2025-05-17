@@ -7,14 +7,6 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 12pt;
 }
 
-/**
- * Reset some basic elements
- */
-body, h1, h2, h3, h4, h5, h6,
-p, blockquote, pre, hr,
-dl, dd, ol, ul, figure {
-}
-
 
 
 /**
@@ -105,9 +97,12 @@ li {
  */
 h1, h2, h3, h4, h5, h6 {
   color: $heading-color;
-  font-weight: normal;
   font-size: 100%;
+  font-weight: normal;
 }
+
+h1 { font-weight: bold; }
+h2 { font-style: italic; }
 
 
 
