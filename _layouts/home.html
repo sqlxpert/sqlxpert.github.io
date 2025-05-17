@@ -3,9 +3,7 @@ layout: base
 ---
 
 <div class="home">
-
-  {{ content }}
-
+  
 
   {% if site.paginate %}
     {% assign posts = paginator.posts %}
@@ -61,4 +59,9 @@ layout: base
       </div>
     {%- endif %}
   {%- endif -%}
+
+
+  {{ content }}
+
+
 </div>
