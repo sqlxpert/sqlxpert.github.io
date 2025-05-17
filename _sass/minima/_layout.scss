@@ -1,4 +1,4 @@
-/**
+f/**
  * Site header
  */
 .site-header {
@@ -134,8 +134,9 @@
 .contact-list,
 .social-media-list {
   list-style: none;
-  margin-left: 0;
 }
+
+ul.contact-list { padding-inline-start: 0; }
 
 .footer-col-wrapper,
 .social-links {
@@ -209,11 +210,6 @@
 .post-list {
   margin-left: 0;
   list-style: none;
-
-  > ul {
-    padding-left: 0;
-    padding-inline-start: 0 !important;
-  }
   
   > li {
     margin-bottom: 1em;
