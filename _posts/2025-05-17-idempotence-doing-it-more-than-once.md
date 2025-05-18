@@ -41,7 +41,7 @@ Lights Off uses five AWS services. As you will see, some basic commands in core 
 
 ### 1. EC2
 
-Elastic Compute Cloud is the oldest of the five services. Its `StartInstances` and `StopInstances` commands are idempotent. If I try to start a compute instance that is already running, my request succeeds. The dynamic response message tells me that the instance was already running at the exact time of my request, in case I need to know.
+Elastic Compute Cloud is the oldest of the five services. Its `StartInstances` and `StopInstances` commands are idempotent. If I try to start a compute instance that is already running, my request succeeds. The dynamic response message mentions that the instance was already running at the exact time of my request, in case I need to know.
 
 ```json
 "StartingInstances": [
@@ -72,7 +72,7 @@ incompatible-network (only valid for non-SqlServer instances)'.
 
 ### 3. Aurora
 
-This newer relational database service's `StartDBCluster` and `StopDBCluster` commands produce an error with a matching exception name and error code, `InvalidDBClusterStateFault` . More importantly, the dynamic error message tells me that the database was already running (available) at the exact time of my request. Safely ignoring the error achieves idempotence after the fact.
+This newer relational database service's `StartDBCluster` and `StopDBCluster` commands produce an error with a matching exception name and error code, `InvalidDBClusterStateFault` . More importantly, the dynamic error message mentions that the database was already running (available) at the exact time of my request. Knowingly ignoring the error achieves idempotence after the fact.
 
 ```text
 An error occurred (InvalidDBClusterStateFault) when calling the StartDBCluster
