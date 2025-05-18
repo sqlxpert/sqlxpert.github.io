@@ -44,19 +44,19 @@ Lights Off uses five AWS services. As you will see, some basic commands in core 
 Elastic Compute Cloud is the oldest of the five services. Its `StartInstances` and `StopInstances` commands are idempotent. If I try to start a compute instance that is already running, my request succeeds. The dynamic response message tells me that the instance was already running at the exact time of my request, in case I need to know.
 
 ```json
-     "StartingInstances": [
-          {
-              "InstanceId": "[redacted]",
-              "CurrentState": {
-                  "Code": 16,
-                  "Name": "running"
-              },
-              "PreviousState": {
-                  "Code": 16,
-                  "Name": "running"
-              }
-          }
-      ]
+"StartingInstances": [
+    {
+        "InstanceId": "[redacted]",
+        "CurrentState": {
+            "Code": 16,
+            "Name": "running"
+        },
+        "PreviousState": {
+            "Code": 16,
+            "Name": "running"
+        }
+    }
+]
 ```
 
 ### 2. RDS
