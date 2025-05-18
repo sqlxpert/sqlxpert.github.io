@@ -33,7 +33,7 @@ Lights Off uses five AWS services. As you will see, some basic commands in core 
 
 |AWS Service|Launched|Commands|Idempotence<br/>Mechanism|Exception Name<br/>+ Error Code (if different)|Token Name<br/>+ Restrictions (if any)|
 |:---|:---:|:---:|:---:|:---:|:---:|
-|EC2||`StartInstances`<br/>`StopInstances`|Built in|||
+|EC2||`StartInstances`<br/>`StopInstances`|&check; Built in|||
 |RDS|After EC2|`StartDBInstance`<br/>`StopDBInstance`|&cross; Not idempotent|`InvalidDBInstanceStateFault`<br/>`InvalidDBInstanceState`&empty;||
 |Aurora|After RDS| `StartDBCluster`<br/>`StopDBCluster`|User checks an error message|`InvalidDBClusterStateFault`||
 |CloudFormation|Before Aurora|`UpdateStack`|&check; User sets a token||`ClientRequestToken`<br/>&le;128 letters, numbers and hyphens|
