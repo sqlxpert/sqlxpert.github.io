@@ -61,7 +61,7 @@ Elastic Compute Cloud is the oldest of the five services. Its `StartInstances` a
 
 ### 2. RDS
 
-Relational Database Service was built on EC2, but its `StartDBInstance` and `StopDBInstance` commands are non-idempotent. If I try to start a database that is already running, I get an error. The [exception](https://en.wikipedia.org/wiki/Exception_handling) is named `InvalidDBInstanceStateFault` but the error code is `InvalidDBInstanceState` &mdash; a bug waiting to happen! The only thing the long error message _doesn't_ tell me is that the database was already running (available) at the exact time of my request. I cannot decide whether to ignore the error (because my start command was indeed a harmless repeat) or take it seriously (in case the database was in a bad state and could not start).
+Relational Database Service was built on EC2, but its `StartDBInstance` and `StopDBInstance` commands are non-idempotent. If I try to start a database that is already running, I get an error. The [exception](https://en.wikipedia.org/wiki/Exception_handling) is named `InvalidDBInstanceStateFault` but the error code is `InvalidDBInstanceState` &mdash; a bug waiting to happen! The only thing the long error message _doesn't_ tell me is that the database was already running (available) at the exact time of my request. I cannot decide whether to ignore the error (because my start request is indeed a harmless repeat) or take it seriously (in case the database is in a bad state and cannot be started).
 
 ```text
 An error occurred (InvalidDBInstanceState) when calling the StartDBInstance
