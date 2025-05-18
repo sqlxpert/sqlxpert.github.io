@@ -9,6 +9,8 @@ image_alt_text: Sets of 3 electrical wires, intersecting at the top of a light p
 
 _Basic Amazon Web Services commands handle repetition differently. This article suggests ways to assure consistent software designs and implementations across your own organization. You do not need to know programming or AWS._
 
+---
+
 ## What Is Idempotence?
 
 In organizations, just as in software, it is best to do work one time, and one time only.
