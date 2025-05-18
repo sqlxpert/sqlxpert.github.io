@@ -233,6 +233,11 @@ ul.post-list { padding-inline-start: 0; }
   color: $brand-color-dimmed;
 }
 
+img.post-image {
+  max-height: 144pt;
+  width: auto;
+}
+
 .post-link {
   display: block;
 }
