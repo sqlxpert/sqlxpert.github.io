@@ -98,7 +98,7 @@ Lack of consistency is **expensive**.
 I do not know whether _AWS_ spent more by having each service team proceed independently, or whether it earned more by bringing each service to market faster.
 I do know that every _customer_ using multiple AWS services has to discover the inconsistencies (sometimes by trial-and-error, because not every detail is or can be documented), write extra code to work around them, and fix the extra bugs that result.
 
-For a specific example, consider the major update of the AWS command-line interface (CLI) in 2020. Part of the work involved covering up disparate date and time representations used by different AWS services. In version 1, customers paid for the lack of consistency. Eventually, AWS paid, by [having version 2 of the CLI convert date and times to an ISO 8601 standard format](https://docs.aws.amazon.com/cli/latest/userguide/cliv2-migration-changes.html#cliv2-migration-timestamp).
+For a specific example, consider the major update of the AWS command-line interface (CLI) in 2020. Part of the work involved covering up disparate date and time representations used by different AWS services. In version 1, customers paid for the lack of consistency. Eventually, AWS paid, by [having version 2 of the CLI convert dates and times to an ISO 8601 standard format](https://docs.aws.amazon.com/cli/latest/userguide/cliv2-migration-changes.html#cliv2-migration-timestamp).
 
 ## How Can We Avoid Repeating this Pattern?
 
