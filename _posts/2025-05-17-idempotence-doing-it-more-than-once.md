@@ -14,7 +14,7 @@ _Basic Amazon Web Services commands handle repetition differently. This article 
 ## What Is Idempotence?
 
 In organizations, just as in software, it is best to do work one time, and one time only.
-Preventing repetition is difficult, and the results of repetition can be costly. In a modern software system, code might be triggered more than once because an [event](https://aws.amazon.com/event-driven-architecture/) is reported, or a message in a [queue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-types.html) is delivered, more than once. In a large or long-lived organization, people who know nothing of each other might solve the same problem more than once.
+Preventing repetition is difficult, and the results of repetition can be costly. In a modern software system, code might be triggered more than once because an [event](https://aws.amazon.com/event-driven-architecture/) is reported, or a [queue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-types.html) message is delivered, more than once. In a large or long-lived organization, people who know nothing of each other might solve the same problem more than once.
 
 If we cannot eliminate repetition, we want to be sure that the result remains the same (or gets better, but never worse). This is my plain-language definition of [idempotence](https://en.wikipedia.org/wiki/Idempotence) .
 
@@ -139,6 +139,6 @@ Even a short list of standards can quickly fall out-of-date. Assign two members 
 
 Obviously, any person shepherding an important design or pull request should add to the standards list when setting a precedent, and update it when improving on a past practice. That is worthy of recognition, too. It is not, however, a substitute for informed, periodic editing of the list of standards.
 
-We might not always anticipate the consequences of our design and implementation decisions. That is okay. The goal is to **gradually build habits of awareness, responsibility, and reciprocity**. My effort saves other people time, and their efforts save me time. As an organization, we try hard to prevent repetitive work. If it does happen, our disciplined practices encourage consistent results and discourage regressions.
+We might not always anticipate the consequences of our design and implementation decisions. That is okay. The goal is to **gradually build habits of awareness, responsibility, and reciprocity**. My effort saves other people time, and their efforts save me time. As an organization, we try hard to prevent repetitive work. If it does happen, our disciplined practices encourage consistent results and discourage regression.
 
 _Thanks for reading! I will eventually publish answers to the questions embedded in the article, but if you are curious or have ideas to share right away, please get in touch._
