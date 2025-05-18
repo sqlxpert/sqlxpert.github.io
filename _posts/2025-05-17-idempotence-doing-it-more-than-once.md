@@ -135,7 +135,7 @@ Do not let searching for past practices devolve into a perfunctory step, a mere 
 
 ### C. Maintain the Standards
 
-Even a short list of standards can quickly fall out-of-date. Assign two members of each team to be responsible. Give them time, and recurring tickets, to edit their team's entries every quarter.  This is real work, worthy of recognition. It is some of the most valuable work in the organization, because of the time and money it saves. The savings may accrue to the organization itself, or to the customers.
+Even a short list of standards can quickly fall out-of-date. Assign two members of each team to be responsible. Give them time, and recurring tickets, to edit their team's entries every quarter.  This is real work, worthy of recognition. It is some of the most valuable work in the organization, because of the time and money it saves. The savings might accrue to the organization, or to customers.
 
 Obviously, any person shepherding an important design or pull request should add to the standards list when setting a precedent, and update it when improving on a past practice. That is worthy of recognition, too. It is not, however, a substitute for informed, periodic editing of the list of standards.
 
