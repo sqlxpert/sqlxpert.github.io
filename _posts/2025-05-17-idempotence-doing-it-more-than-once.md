@@ -18,7 +18,9 @@ Preventing repetition is difficult, and the results of repetition can be costly.
 
 If we cannot eliminate repetition, we want to be sure that the result remains the same (or gets better, but never worse). This is my plain-language definition of [idempotence](https://en.wikipedia.org/wiki/Idempotence)&nbsp;.
 
-_Compare adding 1 with multiplying by 1. Which operation is idempotent? In other words, which operation gives the same result no matter how many times we repeat it? Now, is adding 0 idempotent? Multiplying by 0? If you are not a programmer or an AWS user, feel free to skip any parts of the article that do not apply to you, and resume reading at [Five AWS Services, Compared](#five-aws-services-compared)._
+_Compare adding 1 with multiplying by 1. Which operation is idempotent? In other words, which operation gives the same result no matter how many times we repeat it? Now, is adding 0 idempotent? Multiplying by 0?_
+
+_If you are not a programmer or an AWS user, feel free to skip any parts of the article that do not apply to you, and resume reading at [Five AWS Services, Compared](#five-aws-services-compared)..._
 
 ## AWS Builds Incrementally
 
@@ -31,13 +33,18 @@ Lights Off uses five AWS services. As you will see, some basic commands in core 
 
 ## AWS Services Approach Idempotence Differently
 
-|AWS Service|Launched|Commands|Idempotence<br/>Mechanism|Exception Name<br/>+ Error Code (if different)|Token Name<br/>+ Restrictions (if any)|
-|:---|:---:|:---:|:---:|:---:|:---:|
-|EC2||`StartInstances`<br/>`StopInstances`|Built in|||
-|RDS|After EC2|`StartDBInstance`<br/>`StopDBInstance`|&cross; Not idempotent|`InvalidDBInstanceStateFault`<br/>`InvalidDBInstanceState`&empty;||
-|Aurora|After RDS| `StartDBCluster`<br/>`StopDBCluster`|User checks an error message|`InvalidDBClusterStateFault`||
-|CloudFormation|Before Aurora|`UpdateStack`|User sets a token||`ClientRequestToken`<br/>&le;128 letters, numbers and hyphens|
-|AWS Backup|After the others|`StartBackupJob`|User sets a token||`IdempotencyToken`|
+|Commands|Idempotence Mechanism|Exception Name<br/>+ Error Code|Token Name<br/>+ Restrictions|
+|:---|:---|:---|:---|
+|EC2:||||
+|`StartInstances`<br/>`StopInstances`|Built in|||
+|RDS:||||
+|`StartDBInstance`<br/>`StopDBInstance`|Not idempotent &cross;|Invalid...State**Fault**<br/>Invalid...State||
+|Aurora:||||
+`StartDBCluster`<br/>`StopDBCluster`|User checks an error message afterward|Invalid...StateFault<br>Invalid...StateFault||
+|CloudFormation:||||
+`UpdateStack`|User sets a token beforehand||**ClientRequest**Token<br/>(&le;128 letters, numbers and hyphens)|
+|AWS Backup:||||
+|`StartBackupJob`|User sets a token beforehand||**Idempotency**Token<br/>(No restrictions)|
 
 ### 1. EC2
 
@@ -82,15 +89,17 @@ one of stopped, inaccessible-encryption-credentials-recoverable.
 
 ### 4. CloudFormation
 
-This service, which creates and deletes all kinds of resources, predates Aurora. Its `UpdateStack` command is idempotent if I add a fixed value (token) to my request. If all the details, including the token I've chosen, match, then repeated requests succeed and CloudFormation acts only on the first request.  `ClientRequestToken` is limited to 128 alphanumeric characters and hyphens. Lights Off runs every ten minutes, so I set the token to the start of the ten-minute interval. I have to remove the colon that separates hours from minutes. The time still conforms to the ISO 8601 standard, but it becomes a little harder for humans to decipher (`T15:10` becomes `T1510`, for example).
+This service, which creates and deletes all kinds of resources, predates Aurora. Its `UpdateStack` command is idempotent if I add a fixed value (token) to my request. If all the details, including the token I've chosen, match, then repeated requests succeed and CloudFormation acts only on the first request.  `ClientRequestToken` is limited to 128 letters, numbers and hyphens. Lights Off runs every ten minutes, so I set the token to the start of the ten-minute interval. I have to remove the colon that separates hours from minutes. The time still conforms to the ISO 8601 standard, but it becomes a little harder for humans to decipher (`T15:10Z` becomes `T1510Z`, for example).
+
+_Arbitrary restrictions that make tokens harder for humans to interpret are frustrating, but there is also a deeper problem. What UpdateStack idempotence case cannot be resolved with a token? Feel free to discuss in a comment at the end of the [LinkedIn version of this article](https://www.linkedin.com/pulse/idempotence-doing-more-than-once-paul-marcelin-vin2c). Hint: review the EC2 StartInstances example, above._
 
 ### 5. AWS Backup
 
-This is the newest of the five services. Its `StartBackupJob` command follows the same approach as CloudFormation, but the token is named `IdempotencyToken` and no specific limits are placed on length or permitted characters.
+This is the newest of the five services. Its `StartBackupJob` command follows the same approach as CloudFormation's `UpdateStack` command, but the token is named `IdempotencyToken` and no specific limits are placed on length or permitted characters.
 
 ### Five AWS Services, Compared
 
-The five services all take different approaches to idempotence. Within AWS, the left hand did not know what the right hand was doing. EC2, the oldest of the five services, and AWS Backup, the newest, handle idempotence well.
+The five services all take different approaches to idempotence. Within AWS, the left hand did not know what the right hand was doing. EC2, the oldest of the five, and AWS Backup, the newest, handle idempotence well. The three services launched in between fall short. 
 
 ### Why Do We Care about AWS Inconsistencies?
 
@@ -142,3 +151,6 @@ Obviously, any person shepherding an important design or pull request should add
 We might not always anticipate the consequences of our design and implementation decisions. That is okay. The goal is to **gradually build habits of awareness, responsibility, and reciprocity**. My effort saves other people time, and their efforts save me time. As an organization, we try hard to prevent repetitive work. If it does happen, our disciplined practices encourage consistent results and discourage regression.
 
 _Thanks for reading! I will eventually publish answers to the questions embedded in the article, but if you are curious or have ideas to share right away, please get in touch. My e-mail address appears below (be sure to edit it; I am trying to deter spam), or you can leave a comment at the end of the [LinkedIn version of this article](https://www.linkedin.com/pulse/idempotence-doing-more-than-once-paul-marcelin-vin2c)._
+
+
+_Revised 2025-05-30, with an easier-to-read table and a question about UpdateStack._
