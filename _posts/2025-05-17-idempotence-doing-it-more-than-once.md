@@ -35,16 +35,11 @@ Lights Off uses five AWS services. As you will see, some basic commands in core 
 
 |Commands|Idempotence Mechanism|Exception Name<br/>+ Error Code|Token Name<br/>+ Restrictions|
 |:---|:---|:---|:---|
-|EC2:||||
-|`StartInstances`<br/>`StopInstances`|Built in|||
-|RDS:||||
-|`StartDBInstance`<br/>`StopDBInstance`|Not idempotent &cross;|Invalid...State**Fault**<br/>Invalid...State||
-|Aurora:||||
-`StartDBCluster`<br/>`StopDBCluster`|User checks an error message afterward|Invalid...StateFault<br>Invalid...StateFault||
-|CloudFormation:||||
-`UpdateStack`|User sets a token beforehand||**ClientRequest**Token<br/>(&le;128 letters, numbers and hyphens)|
-|AWS Backup:||||
-|`StartBackupJob`|User sets a token beforehand||**Idempotency**Token<br/>(No restrictions)|
+|EC2<br/>`StartInstances`<br/>`StopInstances`|Built in|||
+|RDS<br/>`StartDBInstance`<br/>`StopDBInstance`|Not idempotent &cross;|Invalid...State**Fault**<br/>Invalid...State||
+|Aurora<br/>`StartDBCluster`<br/>`StopDBCluster`|User checks an error message afterward|Invalid...StateFault<br>Invalid...StateFault||
+|CloudFormation<br/>`UpdateStack`|User sets a token beforehand||**ClientRequest**Token<br/>(&le;128 letters, numbers and hyphens)|
+|AWS Backup<br/>`StartBackupJob`|User sets a token beforehand||**Idempotency**Token<br/>(No restrictions)|
 
 ### 1. EC2
 
