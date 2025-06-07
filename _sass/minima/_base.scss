@@ -147,15 +147,11 @@ a {
 blockquote {
   color: $brand-color;
   border-left: 4px solid $border-color-01;
-  padding-left: 1em;
+  padding-left: 0.5em;
   margin-inline-start: 0;
 
   > :last-child {
     margin-bottom: 0;
-  }
-
-  i, em {
-    font-style: normal;
   }
 }
 
