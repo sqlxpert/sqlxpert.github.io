@@ -131,7 +131,7 @@ The goal is **to promote awareness, not to cover every detail**. Fit the list of
 
 * Idempotence: A repeated request succeeds and is ignored if `IdempotencyToken`&nbsp;, an arbitrary string, remains the same.
 
-> Which two of the three approaches above are semantically equivalent? Would any one of the three approaches be enough to make all of the commands listed earlier in the article idempotent? If not, what makes one command or pair of commands special? Feel free to discuss your ideas in a comment at the end of the [LinkedIn version of this article](https://www.linkedin.com/pulse/idempotence-doing-more-than-once-paul-marcelin-vin2c)._
+> Which two of the three approaches above are semantically equivalent? Would any one of the three approaches be enough to make all of the commands listed earlier in the article idempotent? If not, what makes one command or pair of commands special? Feel free to discuss your ideas in a comment at the end of the [LinkedIn version of this article](https://www.linkedin.com/pulse/idempotence-doing-more-than-once-paul-marcelin-vin2c).
 
 To clarify a one-sentence standard, link to a few lines of actual code in your codebase. If you must, link to an explanatory document. Ideally, it will be an _external_ document. There is no need to invent date and time formats, metadata schemes, representations of numbers and units of measurement, etc. Groups of experts have already done the work; rely on external standards whenever possible.
 
@@ -150,6 +150,6 @@ Obviously, any person shepherding an important design or pull request should add
 
 We might not always anticipate the consequences of our design and implementation decisions. That is okay. The goal is to **gradually build habits of awareness, responsibility, and reciprocity**. My effort saves other people time, and their efforts save me time. As an organization, we try hard to prevent repetitive work. If it does happen, our disciplined practices encourage consistent results and discourage regression.
 
-> Thanks for reading! I will eventually publish answers to the questions embedded in the article, but if you are curious or have ideas to share right away, please get in touch. My e-mail address appears below (be sure to edit it; I am trying to deter spam), or you can leave a comment at the end of the [LinkedIn version of this article](https://www.linkedin.com/pulse/idempotence-doing-more-than-once-paul-marcelin-vin2c)._
+> Thanks for reading! I will eventually publish answers to the questions embedded in the article, but if you are curious or have ideas to share right away, please get in touch. My e-mail address appears below (be sure to edit it; I am trying to deter spam), or you can leave a comment at the end of the [LinkedIn version of this article](https://www.linkedin.com/pulse/idempotence-doing-more-than-once-paul-marcelin-vin2c).
 
 _Revised 2025-05-30, with an easier-to-read table and a question about UpdateStack._
