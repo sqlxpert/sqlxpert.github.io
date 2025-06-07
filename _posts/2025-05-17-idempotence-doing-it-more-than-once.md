@@ -18,9 +18,9 @@ Preventing repetition is difficult, and the results of repetition can be costly.
 
 If we cannot eliminate repetition, we want to be sure that the result remains the same (or gets better, but never worse). This is my plain-language definition of [idempotence](https://en.wikipedia.org/wiki/Idempotence)&nbsp;.
 
-_Compare adding 1 with multiplying by 1. Which operation is idempotent? In other words, which operation gives the same result no matter how many times we repeat it? Now, is adding 0 idempotent? Multiplying by 0?_
+> Compare adding 1 with multiplying by 1. Which operation is idempotent? In other words, which operation gives the same result no matter how many times we repeat it? Now, is adding 0 idempotent? Multiplying by 0?
 
-_If you are not a programmer or an AWS user, feel free to skip any parts of the article that do not apply to you, and resume reading at [Five AWS Services, Compared](#five-aws-services-compared)..._
+> If you are not a programmer or an AWS user, feel free to skip any parts of the article that do not apply to you, and resume reading at [Five AWS Services, Compared](#five-aws-services-compared)...
 
 ## AWS Builds Incrementally
 
@@ -91,7 +91,7 @@ one of stopped, inaccessible-encryption-credentials-recoverable.
 
 This service, which creates and deletes all kinds of resources, predates Aurora. Its `UpdateStack` command is idempotent if I add a fixed value (token) to my request. If all the details, including the token I've chosen, match, then repeated requests succeed and CloudFormation acts only on the first request.  `ClientRequestToken` is limited to 128 letters, numbers and hyphens. Lights Off runs every ten minutes, so I set the token to the start of the ten-minute interval. I have to remove the colon that separates hours from minutes. The time still conforms to the ISO 8601 standard, but it becomes a little harder for humans to decipher (`T15:10Z` becomes `T1510Z`, for example).
 
-_Arbitrary restrictions that make tokens harder for humans to interpret are frustrating, but there is also a deeper problem. What UpdateStack idempotence case cannot be resolved with a token? Feel free to discuss in a comment at the end of the [LinkedIn version of this article](https://www.linkedin.com/pulse/idempotence-doing-more-than-once-paul-marcelin-vin2c). Hint: review the EC2 StartInstances example, above._
+> Arbitrary restrictions that make tokens harder for humans to interpret are frustrating, but there is also a deeper problem. What UpdateStack idempotence case cannot be resolved with a token? Feel free to discuss in a comment at the end of the [LinkedIn version of this article](https://www.linkedin.com/pulse/idempotence-doing-more-than-once-paul-marcelin-vin2c). Hint: review the EC2 StartInstances example, above._
 
 ### 5. AWS Backup
 
@@ -131,7 +131,7 @@ The goal is **to promote awareness, not to cover every detail**. Fit the list of
 
 * Idempotence: A repeated request succeeds and is ignored if `IdempotencyToken`&nbsp;, an arbitrary string, remains the same.
 
-_Which two of the three approaches above are semantically equivalent? Would any one of the three approaches be enough to make all of the commands listed earlier in the article idempotent? If not, what makes one command or pair of commands special? Feel free to discuss your ideas in a comment at the end of the [LinkedIn version of this article](https://www.linkedin.com/pulse/idempotence-doing-more-than-once-paul-marcelin-vin2c)._
+> Which two of the three approaches above are semantically equivalent? Would any one of the three approaches be enough to make all of the commands listed earlier in the article idempotent? If not, what makes one command or pair of commands special? Feel free to discuss your ideas in a comment at the end of the [LinkedIn version of this article](https://www.linkedin.com/pulse/idempotence-doing-more-than-once-paul-marcelin-vin2c)._
 
 To clarify a one-sentence standard, link to a few lines of actual code in your codebase. If you must, link to an explanatory document. Ideally, it will be an _external_ document. There is no need to invent date and time formats, metadata schemes, representations of numbers and units of measurement, etc. Groups of experts have already done the work; rely on external standards whenever possible.
 
@@ -150,7 +150,6 @@ Obviously, any person shepherding an important design or pull request should add
 
 We might not always anticipate the consequences of our design and implementation decisions. That is okay. The goal is to **gradually build habits of awareness, responsibility, and reciprocity**. My effort saves other people time, and their efforts save me time. As an organization, we try hard to prevent repetitive work. If it does happen, our disciplined practices encourage consistent results and discourage regression.
 
-_Thanks for reading! I will eventually publish answers to the questions embedded in the article, but if you are curious or have ideas to share right away, please get in touch. My e-mail address appears below (be sure to edit it; I am trying to deter spam), or you can leave a comment at the end of the [LinkedIn version of this article](https://www.linkedin.com/pulse/idempotence-doing-more-than-once-paul-marcelin-vin2c)._
-
+> Thanks for reading! I will eventually publish answers to the questions embedded in the article, but if you are curious or have ideas to share right away, please get in touch. My e-mail address appears below (be sure to edit it; I am trying to deter spam), or you can leave a comment at the end of the [LinkedIn version of this article](https://www.linkedin.com/pulse/idempotence-doing-more-than-once-paul-marcelin-vin2c)._
 
 _Revised 2025-05-30, with an easier-to-read table and a question about UpdateStack._
