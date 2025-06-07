@@ -148,7 +148,8 @@ blockquote {
   color: $brand-color;
   border-left: 4px solid $border-color-01;
   padding-left: $spacing-unit * .5;
-  font-style: italic;
+  border-left: 2em;
+  /* font-style: italic; */
 
   > :last-child {
     margin-bottom: 0;
