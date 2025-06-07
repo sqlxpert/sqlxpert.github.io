@@ -215,6 +215,7 @@ code.highlighter-rouge {
   @extend %clearfix;
   margin-left: 2.5%;
   margin-right: 2.5%;
+  max-width: 8in;
 
   @media screen and (max-width: $on-medium) {
   }
