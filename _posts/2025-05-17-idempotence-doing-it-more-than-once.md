@@ -91,7 +91,7 @@ one of stopped, inaccessible-encryption-credentials-recoverable.
 
 This service, which creates and deletes all kinds of resources, predates Aurora. Its `UpdateStack` command is idempotent if I add a fixed value (token) to my request. If all the details, including the token I've chosen, match, then repeated requests succeed and CloudFormation acts only on the first request.  `ClientRequestToken` is limited to 128 letters, numbers and hyphens. Lights Off runs every ten minutes, so I set the token to the start of the ten-minute interval. I have to remove the colon that separates hours from minutes. The time still conforms to the ISO 8601 standard, but it becomes a little harder for humans to decipher (`T15:10Z` becomes `T1510Z`, for example).
 
-> Arbitrary restrictions that make tokens harder for humans to interpret are frustrating, but there is also a deeper problem. What UpdateStack idempotence case cannot be resolved with a token? Feel free to discuss in a comment at the end of the [LinkedIn version of this article](https://www.linkedin.com/pulse/idempotence-doing-more-than-once-paul-marcelin-vin2c). Hint: review the EC2 StartInstances example, above._
+> Arbitrary restrictions that make tokens harder for humans to interpret are frustrating, but there is also a deeper problem. What UpdateStack idempotence case cannot be resolved with a token? Feel free to discuss in a comment at the end of the [LinkedIn version of this article](https://www.linkedin.com/pulse/idempotence-doing-more-than-once-paul-marcelin-vin2c). Hint: review the EC2 StartInstances example, above.
 
 ### 5. AWS Backup
 
