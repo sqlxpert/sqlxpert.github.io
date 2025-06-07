@@ -16,7 +16,7 @@ _Basic Amazon Web Services commands handle repetition differently. This article 
 In organizations, just as in software, it is best to do work one time, and one time only.
 Preventing repetition is difficult, and the results of repetition can be costly. In a modern software system, code might be triggered more than once because an [event](https://aws.amazon.com/event-driven-architecture/) gets reported, or a [queue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-types.html) message gets delivered, more than once. In a large or long-lived organization, people who know nothing of each other might solve the same problem more than once.
 
-If we cannot eliminate repetition, we want to be sure that the result remains the same (or gets better, but never worse). This is my plain-language definition of [idempotence](https://en.wikipedia.org/wiki/Idempotence)&nbsp;.
+If we cannot eliminate repetition, we want to be sure that the result remains the same (or gets better, but never worse). This is _my_ plain-language definition of [idempotence](https://en.wikipedia.org/wiki/Idempotence)&nbsp;.
 
 > Compare adding 1 with multiplying by 1. Which operation is idempotent? In other words, which operation gives the same result no matter how many times we repeat it? Now, is adding 0 idempotent? Multiplying by 0?
 
@@ -79,7 +79,7 @@ incompatible-network (only valid for non-SqlServer instances)'.
 
 ### 3. Aurora
 
-This newer relational database service's `StartDBCluster` and `StopDBCluster` commands produce an error with a matching exception name and error code, `InvalidDBClusterStateFault`&nbsp;. More importantly, the dynamic error message mentions that the database was already running (available) at the exact time of my request. Knowingly ignoring the error achieves idempotence after the fact.
+RDS's younger cousin has `StartDBCluster` and `StopDBCluster` commands that produce an error with a matching exception name and error code, `InvalidDBClusterStateFault`&nbsp;. More importantly, the dynamic error message mentions that the database was already running (available) at the exact time of my request. Knowingly ignoring the error achieves idempotence after the fact.
 
 ```text
 An error occurred (InvalidDBClusterStateFault) when calling the StartDBCluster
@@ -89,7 +89,7 @@ one of stopped, inaccessible-encryption-credentials-recoverable.
 
 ### 4. CloudFormation
 
-This service, which creates and deletes all kinds of resources, predates Aurora. Its `UpdateStack` command is idempotent if I add a fixed value (token) to my request. If all the details, including the token I've chosen, match, then repeated requests succeed and CloudFormation acts only on the first request.  `ClientRequestToken` is limited to 128 letters, numbers and hyphens. Lights Off runs every ten minutes, so I set the token to the start of the ten-minute interval. I have to remove the colon that separates hours from minutes. The time still conforms to the ISO 8601 standard, but it becomes a little harder for humans to decipher (`T15:10Z` becomes `T1510Z`, for example).
+This service, which creates, updates, and deletes all kinds of resources, predates Aurora. Its `UpdateStack` command is idempotent if I add a fixed value (token) to my request. If all the details, including the token I've chosen, match, then repeated requests succeed and CloudFormation acts only on the first request.  `ClientRequestToken` is limited to 128 letters, numbers and hyphens. Lights Off runs every ten minutes, so I set the token to the start of the ten-minute interval. I have to remove the colon that separates hours from minutes. The time still conforms to the ISO 8601 standard, but it becomes a little harder for humans to decipher (`T15:10Z` becomes `T1510Z`, for example).
 
 > Arbitrary restrictions that make tokens harder for humans to interpret are frustrating, but there is also a deeper problem. What UpdateStack idempotence case cannot be resolved with a token? Feel free to discuss in a comment at the end of the [LinkedIn version of this article](https://www.linkedin.com/pulse/idempotence-doing-more-than-once-paul-marcelin-vin2c). Hint: review the EC2 StartInstances example, above.
 
@@ -99,7 +99,7 @@ This is the newest of the five services. Its `StartBackupJob` command follows th
 
 ### Five AWS Services, Compared
 
-The five services all take different approaches to idempotence. Within AWS, the left hand did not know what the right hand was doing. EC2, the oldest of the five, and AWS Backup, the newest, handle idempotence well. The three services launched in between fall short. 
+The five services all take different approaches to idempotence. Within AWS, the left hand did not know what the right hand was doing. EC2, the oldest of the five, and AWS Backup, the newest, handle idempotence well. The three services launched in-between fall short. 
 
 ### Why Do We Care about AWS Inconsistencies?
 
@@ -152,4 +152,4 @@ We might not always anticipate the consequences of our design and implementation
 
 > Thanks for reading! I will eventually publish answers to the questions embedded in the article, but if you are curious or have ideas to share right away, please get in touch. My e-mail address appears below (be sure to edit it; I am trying to deter spam), or you can leave a comment at the end of the [LinkedIn version of this article](https://www.linkedin.com/pulse/idempotence-doing-more-than-once-paul-marcelin-vin2c).
 
-_Revised 2025-05-30, with an easier-to-read table and a question about UpdateStack._
+_Revised with an easier-to-read table and a question about UpdateStack on 2025-05-30, and formatting improvements on 2025-06-07._
