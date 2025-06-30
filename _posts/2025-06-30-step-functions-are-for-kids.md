@@ -98,6 +98,7 @@ Fortunately, I was solving a watch-and-wait problem. In this particular Step Fun
 As for logging, logs should be kept clear so that critical problems stand out, if the Three Mile Island nuclear reactor accident is any guide.
 
 > "The computer printer registering alarms was running more than 2&frac12; hours behind the events and at one point jammed, thereby losing valuable information."
+>
 > &mdash; [_Report of the President's Commission on the Accident at Three Miles Island_, October, 1979, p. 30](https://archive.org/details/three-mile-island-report/page/30/mode/1up)
 
 The Step Function service logs all errors with the same priority, instead of giving me the option to log expected errors (such as stopping a database that's already stopped, the yellow state in the test run shown above) at a lower priority so you can ignore them. Because the log levels jump from ERROR to ALL, there's also no automatic way for me to log a successful run without throwing in irrelevant data.
