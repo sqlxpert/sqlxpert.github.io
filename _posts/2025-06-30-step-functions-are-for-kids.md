@@ -7,7 +7,7 @@ image: /assets/images/playground-equipment-20250630.jpg
 image_alt_text: Playground equipment with steps
 ---
 
-_AWS Step Functions are suitable for "real" work and they also make a fine introduction to programming. Why do macho software engineers resist low-infrastructure, low-code, and visual programming paradigms?_
+_Have you had great results with a technology that others made fun of? My latest blog post discusses Step Functions, a low-infrastructure, low-code, visual programming paradigm from AWS._
 
 ---
 
@@ -119,4 +119,4 @@ Step Functions, etc. pose a more direct competitive threat than artificial intel
 
 Me, I'm all in favor of democratizing the software engineering profession. If there are more people who can do what I do, I feel comfortable leaving today's problem in their hands. I enjoy supporting their learning and growth, as I turn toward tomorrow's problem and learn about that...
 
-> Have you had great results with a technology, a method, or an idea that other people made fun of? Tell me about it by commenting on the [LinkedIn version of this article](https://www.linkedin.com/pulse/step-functions-are-for-kids-paul-marcelin-UNKNOWN)!
+> Have you had great results with a technology, a method, or an idea that other people made fun of? Tell me about it by commenting on the [LinkedIn version of this article](https://www.linkedin.com/pulse/step-functions-kids-paul-marcelin-apzpc)!
