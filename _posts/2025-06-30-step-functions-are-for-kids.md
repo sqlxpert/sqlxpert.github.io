@@ -47,7 +47,7 @@ An AWS Step Function resembles a board game. The boxes are "states". You say wha
 
 You can define a Step Function visually, by dragging-and-dropping states and filling in the details, or you can write the JavaScript Object Notation (JSON) definition yourself.
 
-[<img src="/assets/images/aws-step-function-visual-editor-20250630.png" alt="New flow states including Choice, Parallel, Map and Pass can be dragged from the palette on the left to the Step Function diagram on the right. The diagram consists of states connected by arrows." width="864" />](/assets/images/aws-step-function-visual-editor-20250630.png?raw=true "Step Function visual editor")
+[<img src="/assets/images/aws-step-function-visual-editor-20250630.png" alt="New flow states including Choice, Parallel, Map and Pass can be dragged from the palette on the left to the Step Function diagram on the right. The diagram consists of states connected by arrows." width="720" />](/assets/images/aws-step-function-visual-editor-20250630.png?raw=true "Step Function visual editor")
 
 ## Is Zero Code Possible?
 
@@ -75,7 +75,7 @@ I wrote part of the Step Function definition manually but used the visual editor
 
 The automatically-generated diagram grew complex. Some of the complexity was necessary: more states and more arrows, to handle errors. Some of it was unnecessary: arrows that could be drawn without crossing, if only the drawing module were more intelligent or could produce its output in an editable form, for humans to refine. Yet, even the complex diagram became eminently readable when I tested the Step Function. States traversed were highlighted in green (success) or yellow (error). I could tell at a glance, without zooming in, how a test had turned out.
 
-[<img src="/assets/images/aws-step-function-debug-flow-20250630.png" alt="After a 'Wait' state, a 'Choice' state chooses between cluster or instance, if the event has not expired. Because this event is for a database instance, a 'Task' state that calls 'Stop Database Instance' is entered. The other states described are green, whereas this one is yellow. From an arrow labeled 'Catch #1', execution continues with a 'Task' state that calls 'Describe Database Instances' followed by a 'Choice' state that chooses between different database status values. Because the database is in the desired state, the 'Succeed' state is entered." width="1152" />](/assets/images/aws-step-function-debug-flow-20250630.png?raw=true "Step Function test run")
+[<img src="/assets/images/aws-step-function-debug-flow-20250630.png" alt="After a 'Wait' state, a 'Choice' state chooses between cluster or instance, if the event has not expired. Because this event is for a database instance, a 'Task' state that calls 'Stop Database Instance' is entered. The other states described are green, whereas this one is yellow. From an arrow labeled 'Catch #1', execution continues with a 'Task' state that calls 'Describe Database Instances' followed by a 'Choice' state that chooses between different database status values. Because the database is in the desired state, the 'Succeed' state is entered." width="864" />](/assets/images/aws-step-function-debug-flow-20250630.png?raw=true "Step Function test run")
 
 ## Lower Total Cost
 
@@ -99,7 +99,7 @@ As for logging, logs should be kept clear so that critical problems stand out, i
 
 > "The computer printer registering alarms was running more than 2&frac12; hours behind the events and at one point jammed, thereby losing valuable information."
 >
-> &mdash; [_Report of the President's Commission on the Accident at Three Miles Island_, October, 1979, p. 30](https://archive.org/details/three-mile-island-report/page/30/mode/1up)
+> &mdash; [_Report of the President's Commission on the Accident at Three Miles Island_, October,&nbsp;1979, p.&nbsp;30](https://archive.org/details/three-mile-island-report/page/30/mode/1up)
 
 The Step Function service logs all errors with the same priority, instead of giving me the option to log expected errors (such as stopping a database that's already stopped, the yellow state in the test run shown above) at a lower priority so you can ignore them. Because the log levels jump from ERROR to ALL, there's also no automatic way for me to log a successful run without throwing in irrelevant data.
 
