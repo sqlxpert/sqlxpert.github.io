@@ -111,7 +111,7 @@ I dealt with objections from colleagues earlier. Managers might object that Step
 
 ## Democratizing Software Development
 
-You can compare my two solutions to the problem of keeping an AWS database stopped at [github.com/sqlxpert/**step**-stay-stopped-aws-rds-aurora](http://github.com/sqlxpert/step-stay-stopped-aws-rds-aurora) and read about the strengths and weaknesses of other solutions (including AI-generated code) at [github.com/sqlxpert/stay-stopped-aws-rds-aurora#perspective](http://github.com/sqlxpert/stay-stopped-aws-rds-aurora#perspective)&nbsp;.
+You can compare my two solutions to the problem of keeping an AWS database stopped at [github.com/sqlxpert/**step**-stay-stopped-aws-rds-aurora](http://github.com/sqlxpert/step-stay-stopped-aws-rds-aurora#comparison) and read about the strengths and weaknesses of other solutions (including AI-generated code) at [github.com/sqlxpert/stay-stopped-aws-rds-aurora#perspective](http://github.com/sqlxpert/stay-stopped-aws-rds-aurora#perspective)&nbsp;.
 
 Earlier, I rattled off a list of personal accolades to counter the assumption that only an inexperienced programmer would bother with Step Functions. Step Functions are suitable for "real" work and they would also make a fine introduction to programming. Maybe job security is why low-infrastructure, low-code, possibly visual paradigms are so threatening to macho software engineers.
 
