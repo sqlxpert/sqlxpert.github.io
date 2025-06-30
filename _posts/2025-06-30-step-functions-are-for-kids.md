@@ -83,7 +83,7 @@ With Step Functions, you pay by the arrow. Traversing 10,000 arrows costs 25&cen
 
 There is no server to pay for, and no operating system to update.
 
-A cost overlooked by macho software engineers and the managers who abet them is the labor cost incurred when colleagues and successors have to operate and maintain overly complex software. Step Functions are potentially easier to understand than traditional programs. The Step Function diagram is weak as an explanatory tool but becomes useful once you make a test run and see the states traversed highlighted in green.
+A cost overlooked by macho software engineers and the managers who abet them is the _labor cost_ incurred when colleagues and successors have to operate and maintain overly complex software. Step Functions are potentially easier to understand than traditional programs. The Step Function diagram is weak as an explanatory tool but becomes useful once you make a test run and see the states traversed highlighted in green.
 
 In the end, though, the developer of a Step Function should spend time on documentation and a custom diagram. Step Functions require less documentation but they are not fully self-documenting.
 
