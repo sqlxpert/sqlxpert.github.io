@@ -79,7 +79,7 @@ The automatically-generated diagram grew complex. Some of the complexity was nec
 
 ## Lower Total Cost
 
-With Step Functions, you pay by the arrow. Traversing 10,000 arrows costs 25¢, regardless of the total time spent, and regardless of the amount of memory used inside each state. You are allowed to push up to 256 kibibytes of data (about 145 pages of text) between states. You pay normal charges for logging, and for calling other AWS services from "Task" states. ([Pricing](https://aws.amazon.com/step-functions/pricing/#AWS_Step_Functions_Standard_Workflows_pricing_details) and [limits](https://docs.aws.amazon.com/step-functions/latest/dg/service-quotas.html#service-limits-task-executions) can change. Pricing varies by region.)
+With Step Functions, you pay by the arrow. Traversing 10,000 arrows costs 25&cent;, regardless of the total time spent, and regardless of the amount of memory used inside each state. You are allowed to push up to 256 kibibytes of data (about 145 pages of text) between states. You pay normal charges for logging, and for calling other AWS services from "Task" states. ([Pricing](https://aws.amazon.com/step-functions/pricing/#AWS_Step_Functions_Standard_Workflows_pricing_details) and [limits](https://docs.aws.amazon.com/step-functions/latest/dg/service-quotas.html#service-limits-task-executions) can change. Pricing varies by region.)
 
 There is no server to pay for, and no operating system to update.
 
@@ -97,7 +97,7 @@ Fortunately, I was solving a watch-and-wait problem. In this particular Step Fun
 
 As for logging, logs should be kept clear so that critical problems stand out, if the Three Mile Island nuclear reactor accident is any guide.
 
-> "The computer printer registering alarms was running more than 2½ hours behind the events and at one point jammed, thereby losing valuable information."
+> "The computer printer registering alarms was running more than 2&frac12; hours behind the events and at one point jammed, thereby losing valuable information."
 > &mdash; [_Report of the President's Commission on the Accident at Three Miles Island_, October, 1979, p. 30](https://archive.org/details/three-mile-island-report/page/30/mode/1up)
 
 The Step Function service logs all errors with the same priority, instead of giving me the option to log expected errors (such as stopping a database that's already stopped, the yellow state in the test run shown above) at a lower priority so you can ignore them. Because the log levels jump from ERROR to ALL, there's also no automatic way for me to log a successful run without throwing in irrelevant data.
@@ -119,4 +119,3 @@ Step Functions, etc. pose a more direct competitive threat than artificial intel
 Me, I'm in favor of democratizing the software engineering profession. If there are more people who can do what I do, I feel comfortable leaving today's problem in their hands. I enjoy supporting their learning and growth, as I turn toward tomorrow's problem and learn about that...
 
 > Have you had great results with a technology, a method, or an idea that other people made fun of? Tell me about it by commenting on the [LinkedIn version of this article](https://www.linkedin.com/pulse/step-functions-are-for-kids-paul-marcelin-UNKNOWN)!
-
