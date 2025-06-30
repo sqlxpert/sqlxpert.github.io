@@ -11,7 +11,7 @@ _Amazon Web Services Step Functions are suitable for "real" work and they would 
 
 ---
 
-A user of my open-source software brought up a need that was new to me. I searched GitHub, Medium, and Amazon's re:Post knowledge base. Existing solutions would have worked most of the time, but they suffered from a latent timing bug that would eventually have caused a failure &mdash; a failure that could cost money. I wrote a reliable solution in 333 lines of Python, packaged it, and published it. It earned a mention in the [Last Week in AWS newsletter](https://www.lastweekinaws.com/newsletter/) (issue 427, not yet archived), garnered a few stars on GitHub, and that was that.
+A user of my open-source software brought up a need that was new to me. I searched GitHub, Medium, and Amazon's re:Post knowledge base. Existing solutions would have worked most of the time, but they suffered from a latent timing bug that would eventually have caused a failure &mdash; a failure that could cost money. I wrote a reliable solution in 333 lines of Python, packaged it, and published it. It earned a mention in the [_Last Week in AWS Newsletter_](https://www.lastweekinaws.com/newsletter/) (issue 427, not yet archived), garnered a few stars on GitHub, and that was that.
 
 Then, I did something heretical: I tried re-writing it with "zero code".
 
