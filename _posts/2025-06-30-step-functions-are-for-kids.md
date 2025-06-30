@@ -3,11 +3,11 @@ layout: post
 title: "Step Functions Are for Kids"
 author:
   - Paul Marcelin
-# image: /assets/images/UNKNOWN.jpg
-# image_alt_text: UNKNOWN
+image: /assets/images/playground-equipment-20250630.jpg
+image_alt_text: Playground equipment with steps
 ---
 
-_Amazon Web Services Step Functions are suitable for "real" work and they would also make a fine introduction to programming. Maybe job security is the reason low-infrastructure, low-code, visual paradigms are so threatening to macho software engineers..._
+_AWS Step Functions are suitable for "real" work and they also make a fine introduction to programming. Why do macho software engineers resist low-infrastructure, low-code, and visual programming paradigms?_
 
 ---
 
@@ -27,7 +27,7 @@ Worse yet, server images or container definitions proliferate along with scripts
 
 The last reason to block low-infrastructure, low-code architectures was pathetic, in the true sense of the word. Read the next sentence in a pouting voice. "But, we don't have a deployment pipeline for Lambda." Translation? 'The conglomeration of shell scripts and Jenkins plug-ins I made so our manager could boast about releasing multiple times a day and I could get promoted from senior to staff level, can't handle that.'
 
-I spent a Saturday building a suitable continuous integration/continuous deployment pipeline in my personal AWS account, to gauge how difficult it would be. On Monday I reported, happily, that I'd been able to set up an experimental pipeline myself. My colleague's facial expression shifted and he became very defensive. "I've done that, too." I had hit a nerve.
+I spent a Saturday building a suitable continuous integration/continuous deployment pipeline in my personal AWS account, to gauge how difficult it would be. On Monday I reported, enthusiastically, that I'd been able to set up an experimental pipeline myself. My colleague's facial expression shifted and he became very defensive. "I know how to do that, too." I had hit a nerve.
 
 > In the classic 1967 film _The Graduate_, just as Mrs. Robinson (Anne Bancroft) is about to complete her seduction of Benjamin (Dustin Hoffman), the vaunted college graduate gets cold feet.
 >
@@ -37,13 +37,13 @@ I spent a Saturday building a suitable continuous integration/continuous deploym
 >
 > &mdash; Quote from _The Graduate_, 1967. Screenplay by Calder Willingham and Buck Henry, based on the novella by Charles Webb. 50th anniversary Blu-ray edition, StudioCanal, 2017, 0:37:53.
 
-I was excited that the recipe in AWS's documentation worked, and that AWS's own CI/CD tooling could do the job. Nothing extra to install, no [Jenkins](https://www.reddit.com/r/devops/comments/12fhdkm/what_are_the_real_cons_of_using_jenkins/)! I, the dumb one who liked "little Lambda functions", certainly didn't intend to bruise my colleague's ego, but if that had been my intention, what better way? 'You mean, _you_ haven't tried this yet?'
+I was excited that the recipe in AWS's documentation worked, and that AWS's own CI/CD tooling could do the job. Nothing extra to install, no [Jenkins](https://www.reddit.com/r/devops/comments/12fhdkm/what_are_the_real_cons_of_using_jenkins/)! I, the dumb one who liked "little Lambda functions", certainly didn't intend to bruise my colleague's ego, but if that had been my intention, what better way? 'You mean, you _haven't_ tried this yet?'
 
-I began writing software professionally in 1993. I still haven't figured out what macho software engineers get out of their behavior. Does it feel good to ignore other people's ideas? To block change? To write more code than necessary, make it more complex than necessary, and use more infrastructure resources than necessary? Maybe it's a job security ploy, a way of making oneself essential.
+I began writing software professionally in 1993. I still haven't figured out what satisfaction macho software engineers derive from their behavior. Does it feel good to ignore other people's ideas? To block change? To write more code than necessary, make it more complex than necessary, and use more infrastructure resources than necessary? Maybe it's a job security ploy, a way of making oneself essential.
 
 ## What's a Step Function?
 
-An AWS Step Function resembles a board game. The boxes are "states". You say what to do in each box, connect the boxes with arrows, and specify conditions for following the arrows. I'll use [Monopoly](https://en.wikipedia.org/wiki/Monopoly_(game)#Board) as an example. The "Community Chest" box is a "Task" state; your task is to pick a "Community Chest" card. Every card represents a "Choice" rule. If you get the "Advance to 'Go' and collect $200" card, you move to the "Go" state, which is another "Task" state, your new task being to collect the money.
+An AWS Step Function is a computer program that resembles a board game. The boxes are "states". You say what to do in each box, connect the boxes with arrows, and specify conditions for following the arrows. I'll use [Monopoly](https://en.wikipedia.org/wiki/Monopoly_(game)#Board) as an example. The "Community Chest" box is a "Task" state; your task is to pick a "Community Chest" card. Every card represents a "Choice" rule. If you get the "Advance to 'Go' and collect $200" card, you move to the "Go" state, which is another "Task" state, your new task being to collect the money.
 
 You can define a Step Function visually, by dragging-and-dropping states and filling in the details, or you can write the JavaScript Object Notation (JSON) definition yourself.
 
@@ -99,15 +99,15 @@ As for logging, logs should be kept clear so that critical problems stand out, i
 
 > "The computer printer registering alarms was running more than 2&frac12; hours behind the events and at one point jammed, thereby losing valuable information."
 >
-> &mdash; [_Report of the President's Commission on the Accident at Three Miles Island_, October,&nbsp;1979, p.&nbsp;30](https://archive.org/details/three-mile-island-report/page/30/mode/1up)
+> &mdash; [_Report of the President's Commission on the Accident at Three Mile Island_, October,&nbsp;1979, p.&nbsp;30](https://archive.org/details/three-mile-island-report/page/30/mode/1up)
 
 The Step Function service logs all errors with the same priority, instead of giving me the option to log expected errors (such as stopping a database that's already stopped, the yellow state in the test run shown above) at a lower priority so you can ignore them. Because the log levels jump from ERROR to ALL, there's also no automatic way for me to log a successful run without throwing in irrelevant data.
 
 ## Portability Is Probably a Red Herring
 
-I dealt with objections from colleagues earlier. Managers might object that Step Functions and other low-code, low-infrastructure programming paradigms are not portable. Neither is the shell script, nor the traditional Python program! When you switch cloud providers, utility software has to be rewritten. The commands have different names and different parameters. Perhaps the utility isn't needed because the service works differently or, in the case of a cost-saving utility, because the pricing basis is completely different.
+I dealt with objections from peers earlier. Managers might object that Step Functions and other low-code, low-infrastructure programming paradigms are not portable. Neither is the shell script, nor the traditional Python program! When you switch cloud providers, utility software has to be rewritten. The commands have different names and different parameters. Perhaps the utility isn't needed because the service works differently or, in the case of a cost-saving utility, because the pricing basis is completely different.
 
-(Investors, executives and the finance department should question claims about portable application software, too. Is writing software that runs on three different cloud providers your core business, or a technical distraction? What are the opportunity costs? What isn't getting done while your staff-level software engineers are configuring and upgrading [Kubernetes](https://www.socallinuxexpo.org/scale/21x/presentations/terrible-ideas-kubernetes)? Which of your main cloud provider's native performance and cost optimizations and security idioms are you sacrificing when you design to the lowest common denominator?)
+(Investors, executives and the finance department should question multi-cloud application software projects, too. Is writing software that runs on three different cloud providers your core business, or a technical distraction? What are the opportunity costs? What _isn't_ getting done while your staff-level software engineers are busy configuring and upgrading [Kubernetes](https://www.socallinuxexpo.org/scale/21x/presentations/terrible-ideas-kubernetes)? Which of your main cloud provider's native performance and cost optimizations and security idioms are you sacrificing when you design to the lowest common denominator?)
 
 ## Democratizing Software Development
 
@@ -117,6 +117,6 @@ Earlier, I rattled off a list of personal accolades to counter the assumption th
 
 Step Functions, etc. pose a more direct competitive threat than artificial intelligence / large language model (LLM) code generation. A novice writing a Step Function has to practice reducing a problem to discrete steps, and think about how those steps fit together. The person is on the way to learning good programming practices and some computer science. A novice reviewing AI-generated code can't discern semantic errors in that code, and isn't necessarily learning.
 
-Me, I'm in favor of democratizing the software engineering profession. If there are more people who can do what I do, I feel comfortable leaving today's problem in their hands. I enjoy supporting their learning and growth, as I turn toward tomorrow's problem and learn about that...
+Me, I'm all in favor of democratizing the software engineering profession. If there are more people who can do what I do, I feel comfortable leaving today's problem in their hands. I enjoy supporting their learning and growth, as I turn toward tomorrow's problem and learn about that...
 
 > Have you had great results with a technology, a method, or an idea that other people made fun of? Tell me about it by commenting on the [LinkedIn version of this article](https://www.linkedin.com/pulse/step-functions-are-for-kids-paul-marcelin-UNKNOWN)!
